@@ -57,42 +57,64 @@ window.addEventListener("load", () => {
 
 
 /* ARTWORK LIGHTBOX (View Artwork buttons) */
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxTitle = document.getElementById("lightboxTitle");
-const lightboxClose = document.getElementById("lightboxClose");
+(function () {
+    const box = document.getElementById("lightbox");
+    const img = document.getElementById("lightboxImage");
+    const title = document.getElementById("lightboxTitle");
+    const closeBtn = document.getElementById("lightboxClose");
+    if (!box || !img || !title || !closeBtn) return;
 
-function openLightbox(src, title) {
-    if (!lightbox) return;
-    lightboxImage.src = src;
-    lightboxImage.alt = title || "";
-    lightboxTitle.textContent = title || "";
-    lightbox.classList.add("show");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-}
+    function openBox(src, text) {
+        img.src = src;
+        img.alt = text || "";
+        title.textContent = text || "";
+        box.classList.add("show");
+        box.setAttribute("aria-hidden", "false");
+    }
 
-function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove("show");
-    lightbox.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-}
+    function closeBox() {
+        box.classList.remove("show");
+        box.setAttribute("aria-hidden", "true");
+    }
 
-document.querySelectorAll(".view-art").forEach(btn => {
-    btn.addEventListener("click", () => {
-        openLightbox(btn.dataset.image, btn.dataset.title);
+    document.querySelectorAll(".view-art").forEach(btn => {
+        btn.addEventListener("click", () => {
+            openBox(btn.dataset.image, btn.dataset.title);
+        });
     });
-});
 
-if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    closeBtn.addEventListener("click", closeBox);
+    box.addEventListener("click", e => { if (e.target === box) closeBox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeBox(); });
+})();
 
-if (lightbox) {
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
+
+/* THREE-LINE MENU (mobile) */
+(function () {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+    if (!toggle || !menu) return;
+
+    function setMenu(open) {
+        menu.classList.toggle("open", open);
+        toggle.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+
+    toggle.addEventListener("click", () => {
+        setMenu(!menu.classList.contains("open"));
     });
-}
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeLightbox();
-});
+    menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => setMenu(false));
+    });
+
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") setMenu(false);
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1000) setMenu(false);
+    });
+})();
