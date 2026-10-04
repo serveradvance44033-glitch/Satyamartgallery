@@ -54,3 +54,45 @@ window.addEventListener("load", () => {
         }
     }, 4300);
 });
+
+
+/* ARTWORK LIGHTBOX (View Artwork buttons) */
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxTitle = document.getElementById("lightboxTitle");
+const lightboxClose = document.getElementById("lightboxClose");
+
+function openLightbox(src, title) {
+    if (!lightbox) return;
+    lightboxImage.src = src;
+    lightboxImage.alt = title || "";
+    lightboxTitle.textContent = title || "";
+    lightbox.classList.add("show");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove("show");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".view-art").forEach(btn => {
+    btn.addEventListener("click", () => {
+        openLightbox(btn.dataset.image, btn.dataset.title);
+    });
+});
+
+if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+
+if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+});
