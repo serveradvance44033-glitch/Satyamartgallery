@@ -126,21 +126,41 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 }
 
 </style>
+<noscript><style>
+#intro, .menu-toggle, .view-art { display: none !important; }
+.nav { position: relative; top: auto; left: auto; transform: none; margin: 16px auto; animation: none; }
+@media (max-width:1000px) { .mobile-menu { display:flex; } }
+</style></noscript>
+<style>
+.skip-link { position:fixed; top:12px; left:12px; z-index:100001; padding:12px 18px; border-radius:10px; background:#f7f4ee; color:#111; transform:translateY(-180%); font:600 15px Inter,sans-serif; }
+.skip-link:focus { transform:none; outline:3px solid #d7b36a; outline-offset:3px; }
+a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offset:4px; }
+#main-content:focus { outline:none; }
+</style>
+<link rel="canonical" href="https://satyam2026.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Satyam Art Gallery | Custom Art Studio">
+<meta property="og:description" content="Custom sketches, portraits, paintings and original artwork.">
+<meta property="og:url" content="https://satyam2026.vercel.app/">
+<meta property="og:image" content="https://satyam2026.vercel.app/art-hanuman.png">
+<meta property="og:image:alt" content="Original Hanuman artwork">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- INTRO -->
-<div id="intro">
+<div id="intro" aria-hidden="true">
     <div class="intro-line"></div>
 
     <div class="intro-content">
         <div class="intro-small">WELCOME TO</div>
 
-        <h1>
+        <div class="intro-heading">
             SATYAM
             <span>ART GALLERY</span>
-        </h1>
+        </div>
 
         <div class="intro-sub">
             CUSTOM ART | SKETCHES | PAINTINGS
@@ -151,7 +171,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 </div>
 
 <!-- BACKGROUND -->
-<div class="bg">
+<div class="bg" aria-hidden="true">
     <div class="grid"></div>
     <div class="orb a"></div>
     <div class="orb b"></div>
@@ -160,7 +180,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 </div>
 
 <!-- NAVIGATION -->
-<nav class="nav" id="siteNav">
+<nav class="nav" id="siteNav" aria-label="Main navigation">
     <div class="logo">
         Satyam
         <span>Art Gallery</span>
@@ -195,7 +215,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
     </div>
 </nav>
 
-<main>
+<main id="main-content" tabindex="-1">
 
 <!-- HERO -->
 <section class="hero">
@@ -234,9 +254,9 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
             <div class="hero-image-wrap">
                 <img
                     class="hero-image"
-                    src="art-hanuman.png"
+                    src="art-hanuman.webp" data-full-image="art-hanuman.png"
                     alt="Original Hanuman artwork by Satyam Art Gallery"
-                >
+                 width="1536" height="1536" decoding="async" loading="eager" fetchpriority="high">
             </div>
 
             <div class="floating-label">
@@ -377,9 +397,9 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
             <article class="paint reveal">
                 <div class="paint-image">
                     <img
-                        src="art-lion-goddess.png"
+                        src="art-lion-goddess.webp" data-full-image="art-lion-goddess.png"
                         alt="Maa Durga with Lion - Original Artwork by Satyam Singh"
-                    >
+                     width="1536" height="1536" decoding="async" loading="lazy">
                     <span class="art-badge">ORIGINAL</span>
                 </div>
 
@@ -392,9 +412,9 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
                     <div class="paint-actions">
                         <button class="btn btn-outline view-art"
                                 data-image="art-lion-goddess.png"
-                                data-title="Maa Durga">
+                                data-title="Maa Durga" aria-label="View Maa Durga full image">
                             View Artwork
-                        </button>
+                        </button><noscript><a class="btn btn-outline" href="art-lion-goddess.png">View Maa Durga full image</a></noscript>
 
                         <a class="btn btn-dark"
                            href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20buy%20the%20Maa%20Durga%20artwork."
@@ -433,7 +453,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 
             <article class="gallery-card reveal">
                 <div class="gallery-image">
-                    <img src="art-guru.jpg" alt="Colourful Guru artwork">
+                    <img src="art-guru.webp" data-full-image="art-guru.jpg" alt="Colourful Guru artwork" width="1472" height="1536" decoding="async" loading="lazy">
                     <span>ORIGINAL</span>
                 </div>
 
@@ -443,15 +463,15 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 
                     <button class="btn btn-outline view-art"
                             data-image="art-guru.jpg"
-                            data-title="Colourful Guru">
+                            data-title="Colourful Guru" aria-label="View Colourful Guru full image">
                         View Artwork
-                    </button>
+                    </button><noscript><a class="btn btn-outline" href="art-guru.jpg">View Colourful Guru full image</a></noscript>
                 </div>
             </article>
 
             <article class="gallery-card reveal">
                 <div class="gallery-image">
-                    <img src="art-portrait.jpg" alt="Pencil portrait artwork">
+                    <img src="art-portrait.webp" data-full-image="art-portrait.jpg" alt="Pencil portrait artwork" width="1536" height="952" decoding="async" loading="lazy">
                     <span>PENCIL ART</span>
                 </div>
 
@@ -461,15 +481,15 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 
                     <button class="btn btn-outline view-art"
                             data-image="art-portrait.jpg"
-                            data-title="Detailed Portrait">
+                            data-title="Detailed Portrait" aria-label="View Detailed Portrait full image">
                         View Artwork
-                    </button>
+                    </button><noscript><a class="btn btn-outline" href="art-portrait.jpg">View Detailed Portrait full image</a></noscript>
                 </div>
             </article>
 
             <article class="gallery-card reveal">
                 <div class="gallery-image">
-                    <img src="art-sunflower-girl.png" alt="Girl with sunflowers artwork">
+                    <img src="art-sunflower-girl.webp" data-full-image="art-sunflower-girl.png" alt="Girl with sunflowers artwork" width="1150" height="1536" decoding="async" loading="lazy">
                     <span>ORIGINAL</span>
                 </div>
 
@@ -479,9 +499,9 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 
                     <button class="btn btn-outline view-art"
                             data-image="art-sunflower-girl.png"
-                            data-title="Sunflower Girl">
+                            data-title="Sunflower Girl" aria-label="View Sunflower Girl full image">
                         View Artwork
-                    </button>
+                    </button><noscript><a class="btn btn-outline" href="art-sunflower-girl.png">View Sunflower Girl full image</a></noscript>
                 </div>
             </article>
 
@@ -663,7 +683,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
         image.setAttribute('aria-haspopup', 'dialog');
         image.setAttribute('aria-controls', 'lightbox');
         image.setAttribute('aria-label', `View full image: ${label}`);
-        const open = () => openBox(image.getAttribute('src'), label, image);
+        const open = () => openBox(image.dataset.fullImage || image.getAttribute('src'), label, image);
         image.addEventListener('click', open);
         image.addEventListener('keydown', event => {
             if (event.key === 'Enter' || event.key === ' ') {

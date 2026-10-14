@@ -12,6 +12,7 @@ for (let i = 0; i < 55; i++) {
 }
 
 /* SCROLL REVEAL OBSERVER */
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -20,9 +21,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: .12 });
 
+document.documentElement.classList.add("reveal-enabled");
 document.querySelectorAll(".reveal").forEach(el => {
     observer.observe(el);
 });
+}
 
 /* OPENING INTRO CONTROLLER */
 window.addEventListener("load", () => {
@@ -58,7 +61,14 @@ window.addEventListener("load", () => {
     });
 
     document.addEventListener("keydown", e => {
-        if (e.key === "Escape") setMenu(false);
+        if (e.key === "Escape" && menu.classList.contains("open")) {
+            setMenu(false);
+            toggle.focus();
+        }
+    });
+
+    document.addEventListener("click", event => {
+        if (menu.classList.contains("open") && !event.target.closest("#siteNav")) setMenu(false);
     });
 
     window.addEventListener("resize", () => {
