@@ -82,6 +82,28 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 @keyframes preview-open { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { dialog.lightbox .lightbox-content { animation: none; } }
 
+/* One WhatsApp ordering card, directly below the three steps. */
+#order .order-contact {
+    margin: 32px auto 0;
+    padding: 28px;
+    border-color: rgba(215,179,106,.55);
+    background: linear-gradient(135deg,rgba(215,179,106,.08),rgba(255,255,255,.025));
+    text-align: left;
+    box-shadow: 0 16px 40px rgba(0,0,0,.15);
+}
+#order .order-contact:hover { border-color: var(--gold); box-shadow: 0 18px 42px rgba(215,179,106,.1); }
+#order .order-contact .wa-icon,
+#order .order-contact .wa-button { background: var(--gold); color: #17130c; }
+#order .order-contact .wa-button:hover { box-shadow: 0 8px 24px rgba(215,179,106,.22); }
+#order .order-contact .wa-button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+@media (max-width: 600px) {
+    #order .order-contact { padding: 24px; gap: 18px; align-items: flex-start; }
+    #order .order-contact .wa-button { align-self: stretch; min-height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #order .order-contact:hover, #order .order-contact .wa-button:hover { transform: none; }
+}
+
 </style>
 </head>
 
@@ -482,22 +504,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
             </div>
         </div>
 
-        <div class="process-cta">
-            <a class="btn btn-dark"
-               href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20place%20an%20artwork%20order."
-               target="_blank" rel="noopener">
-                Order on WhatsApp
-            </a>
-        </div>
-
-    </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-    <div class="wa-box reveal">
+    <div class="wa-box order-contact reveal">
 
         <div class="wa-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -518,6 +525,13 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
         </a>
     </div>
 
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
     <!-- SOCIAL LINKS (gold pill buttons - styled in Style.css) -->
     <div class="social-links">
 
