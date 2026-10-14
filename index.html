@@ -2,6 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Decide before first paint: welcome only once in this tab. -->
+    <script>
+    (function () {
+        var key = "satyam-welcome-seen";
+        var seen = false;
+        try {
+            seen = sessionStorage.getItem(key) === "1";
+            sessionStorage.setItem(key, "1");
+        } catch (error) { /* Storage may be disabled; internal links still work. */ }
+        var fromAbout = false;
+        try {
+            var previous = new URL(document.referrer);
+            fromAbout = previous.origin === location.origin && /\/About\.html$/i.test(previous.pathname);
+        } catch (error) { /* No referrer on a fresh visit. */ }
+        var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (seen || fromAbout || reducedMotion) {
+            document.documentElement.classList.add("skip-welcome");
+        }
+    })();
+    </script>
+    <style>html.skip-welcome #intro { display: none !important; animation: none !important; }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Satyam Art Gallery | Custom Art Studio</title>

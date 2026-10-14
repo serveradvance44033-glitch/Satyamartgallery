@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+// Visiting About also counts as entering the site in this tab.
+try { sessionStorage.setItem("satyam-welcome-seen", "1"); } catch (error) {}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>About Artist | Satyam Art Gallery</title>
@@ -1046,7 +1050,7 @@ h1 span{
 
 
             <a
-                href="index.html#artwork"
+                href="index.html#more-art"
                 class="btn btn-outline"
             >
                 View Artwork
