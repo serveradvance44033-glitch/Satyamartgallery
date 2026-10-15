@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- Decide before first paint: welcome only once in this tab. -->
-    <script>
+<meta charset="utf-8"/>
+<!-- Decide before first paint: welcome only once in this tab. -->
+<script>
     (function () {
         var key = "satyam-welcome-seen";
         var seen = false;
@@ -22,22 +23,15 @@
         }
     })();
     </script>
-    <style>html.skip-welcome #intro { display: none !important; animation: none !important; }</style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Satyam Art Gallery | Custom Art Studio</title>
-
-    <meta name="description"
-          content="Satyam Art Gallery - Custom sketches, portraits, paintings and original artwork.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" href="Style.css">
-    <style>
+<style>html.skip-welcome #intro { display: none !important; animation: none !important; }</style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Satyam Art Gallery | Custom Art Studio</title>
+<meta content="Satyam Art Gallery - Custom sketches, portraits, paintings and original artwork." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="Style.css" rel="stylesheet"/>
+<style>
 /* Full-resolution image previews, shared by the gallery and artist page. */
 .image-preview-trigger { cursor: zoom-in; }
 .image-preview-trigger:focus-visible { outline: 3px solid #d7b36a; outline-offset: 5px; }
@@ -137,470 +131,329 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offset:4px; }
 #main-content:focus { outline:none; }
 </style>
-<link rel="canonical" href="https://satyam2026.vercel.app/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Satyam Art Gallery | Custom Art Studio">
-<meta property="og:description" content="Custom sketches, portraits, paintings and original artwork.">
-<meta property="og:url" content="https://satyam2026.vercel.app/">
-<meta property="og:image" content="https://satyam2026.vercel.app/art-hanuman.png">
-<meta property="og:image:alt" content="Original Hanuman artwork">
-<meta name="twitter:card" content="summary_large_image">
-</head>
-
+<link href="https://satyam2026.vercel.app/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Satyam Art Gallery | Custom Art Studio" property="og:title"/>
+<meta content="Custom sketches, portraits, paintings and original artwork." property="og:description"/>
+<meta content="https://satyam2026.vercel.app/" property="og:url"/>
+<meta content="https://satyam2026.vercel.app/art-hanuman.png" property="og:image"/>
+<meta content="Original Hanuman artwork" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="Gallery.css" rel="stylesheet"/></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-
 <!-- INTRO -->
-<div id="intro" aria-hidden="true">
-    <div class="intro-line"></div>
-
-    <div class="intro-content">
-        <div class="intro-small">WELCOME TO</div>
-
-        <div class="intro-heading">
+<div aria-hidden="true" id="intro">
+<div class="intro-line"></div>
+<div class="intro-content">
+<div class="intro-small">WELCOME TO</div>
+<div class="intro-heading">
             SATYAM
             <span>ART GALLERY</span>
-        </div>
-
-        <div class="intro-sub">
+</div>
+<div class="intro-sub">
             CUSTOM ART | SKETCHES | PAINTINGS
         </div>
-    </div>
-
-    <div class="intro-line bottom"></div>
 </div>
-
+<div class="intro-line bottom"></div>
+</div>
 <!-- BACKGROUND -->
-<div class="bg" aria-hidden="true">
-    <div class="grid"></div>
-    <div class="orb a"></div>
-    <div class="orb b"></div>
-    <div class="orb c"></div>
-    <div class="particles" id="particles"></div>
+<div aria-hidden="true" class="bg">
+<div class="grid"></div>
+<div class="orb a"></div>
+<div class="orb b"></div>
+<div class="orb c"></div>
+<div class="particles" id="particles"></div>
 </div>
-
 <!-- NAVIGATION -->
-<nav class="nav" id="siteNav" aria-label="Main navigation">
-    <div class="logo">
-        Satyam
-        <span>Art Gallery</span>
-    </div>
+<nav aria-label="Main navigation" class="nav" id="siteNav">
+<a aria-label="Satyam Art Gallery home" class="logo" href="index.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 48 48"><path d="M40 26c6-9-2-20-15-20C13 6 5 14 5 25c0 10 7 17 16 17 5 0 7-3 5-6-3-4 2-6 6-5 4 1 6-1 8-5Z"></path><circle cx="15" cy="21" r="2"></circle><circle cx="23" cy="14" r="2"></circle><circle cx="33" cy="18" r="2"></circle><path d="m23 30 19-23 3 3-19 23-6 3Z"></path></svg><span class="brand-type"><strong>Satyam</strong><small>ART GALLERY</small></span></a>
+<div class="navlinks">
+<a href="#services">Services</a>
+<a href="#other">Artwork</a>
+<a href="#paintings">Paintings</a>
+<a href="#more-art">Gallery</a>
+<a href="#order">Process</a>
+<a href="About.html">About Satyam</a></div>
+<div class="nav-actions">
 
-    <div class="navlinks">
-        <a href="#services">Services</a>
-        <a href="#other">Artwork</a>
-        <a href="#paintings">Paintings</a>
-        <a href="#more-art">Gallery</a>
-        <a href="#order">Process</a>
-    </div>
-
-    <div class="nav-actions">
-        <a href="About.html" class="nav-about">About Satyam</a>
-        <a href="#order" class="nav-cta">Order Now</a>
-        <button class="menu-toggle" id="menuToggle" type="button"
-                aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#services">Services</a>
-        <a href="#other">Artwork</a>
-        <a href="#paintings">Paintings</a>
-        <a href="#more-art">Gallery</a>
-        <a href="#order">Process</a>
-        <a href="About.html">About Satyam</a>
-    </div>
+<a class="nav-cta" href="#order">Order Now</a>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#services">Services</a>
+<a href="#other">Artwork</a>
+<a href="#paintings">Paintings</a>
+<a href="#more-art">Gallery</a>
+<a href="#order">Process</a>
+<a href="About.html">About Satyam</a>
+</div>
 </nav>
-
 <main id="main-content" tabindex="-1">
-
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-inner">
-
-        <div>
-            <div class="eyebrow">
-                <span class="dot"></span>
-                Custom Art Studio
-            </div>
-
-            <h1>
-                Art made
-                <br>
-                <span>for you.</span>
-            </h1>
-
-            <p class="hero-copy">
+<div class="hero-inner">
+<div>
+<div class="eyebrow">WELCOME TO THE GALLERY</div>
+<h1>Satyam<span>Art Gallery</span></h1><p class="hero-signature">Art made for you.</p>
+<p class="hero-copy">
                 Custom sketches, portraits and paintings created
                 with patience, detail and a personal artistic touch.
                 Turn your favourite memories into artwork.
             </p>
-
-            <div class="actions">
-                <a class="btn btn-dark" href="#services">
+<div class="actions">
+<a class="btn btn-dark" href="#services">
                     Explore Services
                 </a>
-
-                <a class="btn btn-outline" href="#paintings">
+<a class="btn btn-outline" href="#paintings">
                     View Paintings
                 </a>
-            </div>
-        </div>
-
-        <div class="hero-visual">
-            <div class="hero-image-wrap">
-                <img
-                    class="hero-image"
-                    src="art-hanuman.webp" data-full-image="art-hanuman.png"
-                    alt="Original Hanuman artwork by Satyam Art Gallery"
-                 width="1536" height="1536" decoding="async" loading="eager" fetchpriority="high">
-            </div>
-
-            <div class="floating-label">
-                <small>Original Artwork</small>
-                <strong>Satyam Art Gallery</strong>
-            </div>
-        </div>
-
-    </div>
+</div>
+</div>
+<div aria-label="Original artwork displayed in a gallery setting" class="hero-visual">
+<div class="gallery-wall"><div aria-hidden="true" class="ceiling-rail"><i></i><i></i><i></i></div>
+<figure class="wall-frame side-frame"><img alt="Pencil portrait artwork" class="hero-image" data-full-image="art-portrait.jpg" height="952" loading="eager" src="art-portrait.webp" width="1536"/><figcaption>GRAPHITE / PORTRAIT</figcaption></figure>
+<figure class="wall-frame main-frame"><img alt="Original Hanuman artwork by Satyam Art Gallery" class="hero-image" data-full-image="art-hanuman.png" fetchpriority="high" height="1536" src="art-hanuman.webp" width="1536"/><figcaption>HANUMAN / ORIGINAL ARTWORK</figcaption></figure>
+<figure class="wall-frame far-frame"><img alt="Girl with sunflowers artwork" class="hero-image" data-full-image="art-sunflower-girl.png" height="1536" loading="eager" src="art-sunflower-girl.webp" width="1150"/><figcaption>COLOUR / HAND-PAINTED</figcaption></figure>
+</div><div aria-hidden="true" class="gallery-floor"></div><p class="room-caption">Every artwork tells a story.<span>SELECTED WORKS BY SATYAM</span></p>
+</div>
+<a class="scroll-cue" href="#services"><span>↓</span> Explore the collection</a></div>
 </section>
-
 <!-- SKETCH SERVICES -->
 <section id="services">
-    <div class="container">
+<div class="container">
+<div class="heading reveal">
+<div class="tag">OUR SERVICES</div>
+<h2>Art Services &amp; Prices</h2>
+<p>Choose your sketch style and send your photo through WhatsApp.</p>
+</div>
+<div class="cards">
+<article class="card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><circle cx="24" cy="17" r="10"></circle><path d="M7 43v-5c0-8 8-12 17-12s17 4 17 12v5M15 8l-5 13m23-13 5 13"></path></svg>
 
-        <div class="heading reveal">
-            <div class="tag">01 / Sketch Services</div>
-            <h2>Portrait Pricing</h2>
-            <p>Choose your sketch style and send your photo through WhatsApp.</p>
-        </div>
-
-        <div class="cards">
-
-            <article class="card reveal">
-                <div class="num">01</div>
-                <h3>Face Sketch</h3>
-                <div class="price">₹100</div>
-
-                <p>Detailed pencil sketch focusing on facial features and expressions.</p>
-
-                <a class="btn btn-dark"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20order%20a%20Face%20Sketch%20for%20Rs%20100."
-                   target="_blank" rel="noopener">
+<h3>Face Sketch</h3>
+<div class="price">₹100</div>
+<p>Detailed pencil sketch focusing on facial features and expressions.</p>
+<a class="btn btn-dark" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20order%20a%20Face%20Sketch%20for%20Rs%20100." rel="noopener" target="_blank">
                     Order Sketch
                 </a>
-            </article>
+</article>
+<article class="card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><circle cx="24" cy="13" r="7"></circle><path d="M9 43V29c0-8 7-12 15-12s15 4 15 12v14M17 29v14m14-14v14"></path></svg>
 
-            <article class="card reveal">
-                <div class="num">02</div>
-                <h3>Half Body</h3>
-                <div class="price">₹100</div>
-
-                <p>Half-body portrait with clean proportions and artistic detailing.</p>
-
-                <a class="btn btn-dark"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20order%20a%20Half%20Body%20Sketch%20for%20Rs%20100."
-                   target="_blank" rel="noopener">
+<h3>Half Body</h3>
+<div class="price">₹100</div>
+<p>Half-body portrait with clean proportions and artistic detailing.</p>
+<a class="btn btn-dark" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20order%20a%20Half%20Body%20Sketch%20for%20Rs%20100." rel="noopener" target="_blank">
                     Order Sketch
                 </a>
-            </article>
+</article>
+<article class="card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><circle cx="24" cy="8" r="5"></circle><path d="M18 45V27l-6-3 4-9h16l4 9-6 3v18M24 27v18"></path></svg>
+<div class="popular">POPULAR</div>
 
-            <article class="card reveal">
-                <div class="popular">POPULAR</div>
-                <div class="num">03</div>
-                <h3>Full Image</h3>
-                <div class="price">₹200</div>
-
-                <p>Full-body sketch with detailed composition and professional finishing.</p>
-
-                <a class="btn btn-dark"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20order%20a%20Full%20Image%20Sketch%20for%20Rs%20200."
-                   target="_blank" rel="noopener">
+<h3>Full Image</h3>
+<div class="price">₹200</div>
+<p>Full-body sketch with detailed composition and professional finishing.</p>
+<a class="btn btn-dark" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20order%20a%20Full%20Image%20Sketch%20for%20Rs%20200." rel="noopener" target="_blank">
                     Order Sketch
                 </a>
-            </article>
-
-        </div>
-    </div>
+</article>
+</div>
+</div>
 </section>
-
 <!-- OTHER SERVICES -->
-<section id="other" class="alt">
-    <div class="container">
-
-        <div class="heading reveal">
-            <div class="tag">02 / More Services</div>
-            <h2>Other Artwork</h2>
-        </div>
-
-        <div class="other">
-
-            <article class="other-card reveal">
-                <h3>Couple Sketch</h3>
-                <p>Custom portrait for couples.</p>
-                <div class="other-price">₹200+</div>
-
-                <a class="btn btn-outline"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Couple%20Sketch."
-                   target="_blank" rel="noopener">Enquire</a>
-            </article>
-
-            <article class="other-card reveal">
-                <h3>Family Sketch</h3>
-                <p>Bring the whole family into one artwork.</p>
-                <div class="other-price">₹300+</div>
-
-                <a class="btn btn-outline"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Family%20Sketch."
-                   target="_blank" rel="noopener">Enquire</a>
-            </article>
-
-            <article class="other-card reveal">
-                <h3>Pet Sketch</h3>
-                <p>Turn your pet's photo into artwork.</p>
-                <div class="other-price">₹150+</div>
-
-                <a class="btn btn-outline"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Pet%20Sketch."
-                   target="_blank" rel="noopener">Enquire</a>
-            </article>
-
-            <article class="other-card reveal">
-                <h3>Colour Sketch</h3>
-                <p>Colourful portrait artwork with artistic detailing.</p>
-                <div class="other-price">₹300+</div>
-
-                <a class="btn btn-outline"
-                   href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Colour%20Sketch."
-                   target="_blank" rel="noopener">Enquire</a>
-            </article>
-
-        </div>
-    </div>
+<section class="alt" id="other">
+<div class="container">
+<div class="heading reveal">
+<div class="tag">SOMETHING MORE PERSONAL</div>
+<h2>Made for your memories</h2>
+</div>
+<div class="other">
+<article class="other-card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><circle cx="16" cy="14" r="7"></circle><circle cx="33" cy="14" r="7"></circle><path d="M3 41V31c0-8 6-10 13-10s12 4 12 10v10M28 22c9-2 17 3 17 10v9M11 32v9m24-9v9"></path></svg>
+<h3>Couple Sketch</h3>
+<p>Custom portrait for couples.</p>
+<div class="other-price">₹200+</div>
+<a class="btn btn-outline" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Couple%20Sketch." rel="noopener" target="_blank">Enquire</a>
+</article>
+<article class="other-card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><circle cx="12" cy="12" r="6"></circle><circle cx="35" cy="12" r="6"></circle><circle cx="24" cy="25" r="5"></circle><path d="M2 40V27q0-11 12-9M46 40V27q0-11-12-9M15 44v-8q9-12 18 0v8"></path></svg>
+<h3>Family Sketch</h3>
+<p>Bring the whole family into one artwork.</p>
+<div class="other-price">₹300+</div>
+<a class="btn btn-outline" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Family%20Sketch." rel="noopener" target="_blank">Enquire</a>
+</article>
+<article class="other-card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><ellipse cx="11" cy="16" rx="4" ry="6"></ellipse><ellipse cx="21" cy="10" rx="4" ry="6"></ellipse><ellipse cx="32" cy="12" rx="4" ry="6"></ellipse><ellipse cx="40" cy="21" rx="4" ry="6"></ellipse><path d="M10 34c0-5 8-14 14-14s15 11 15 17c0 10-10 4-15 4s-14 4-14-7Z"></path></svg>
+<h3>Pet Sketch</h3>
+<p>Turn your pet's photo into artwork.</p>
+<div class="other-price">₹150+</div>
+<a class="btn btn-outline" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Pet%20Sketch." rel="noopener" target="_blank">Enquire</a>
+</article>
+<article class="other-card reveal"><svg aria-hidden="true" class="service-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 48 48"><path d="M40 26c6-9-2-20-15-20C13 6 5 14 5 25c0 10 7 17 16 17 5 0 7-3 5-6-3-4 2-6 6-5 4 1 6-1 8-5Z"></path><circle cx="15" cy="21" r="2"></circle><circle cx="23" cy="14" r="2"></circle><circle cx="33" cy="18" r="2"></circle></svg>
+<h3>Colour Sketch</h3>
+<p>Colourful portrait artwork with artistic detailing.</p>
+<div class="other-price">₹300+</div>
+<a class="btn btn-outline" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20a%20Colour%20Sketch." rel="noopener" target="_blank">Enquire</a>
+</article>
+</div>
+</div>
 </section>
-
 <!-- PAINTINGS -->
 <section id="paintings">
-    <div class="container">
-
-        <div class="heading reveal">
-            <div class="tag">03 / Original Paintings</div>
-            <h2>Original Paintings</h2>
-            <p>Explore original artwork from Satyam Art Gallery.</p>
-        </div>
-
-        <div class="paintings-grid">
-
-            <article class="paint reveal">
-                <div class="paint-image">
-                    <img
-                        src="art-lion-goddess.webp" data-full-image="art-lion-goddess.png"
-                        alt="Maa Durga with Lion - Original Artwork by Satyam Singh"
-                     width="1536" height="1536" decoding="async" loading="lazy">
-                    <span class="art-badge">ORIGINAL</span>
-                </div>
-
-                <div class="paint-info">
-                    <h3>Maa Durga</h3>
-                    <p>Original Hand-drawn Artwork by Satyam Singh</p>
-
-                    <div class="paint-price">₹2,499</div>
-
-                    <div class="paint-actions">
-                        <button class="btn btn-outline view-art"
-                                data-image="art-lion-goddess.png"
-                                data-title="Maa Durga" aria-label="View Maa Durga full image">
-                            View Artwork
-                        </button><noscript><a class="btn btn-outline" href="art-lion-goddess.png">View Maa Durga full image</a></noscript>
-
-                        <a class="btn btn-dark"
-                           href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20buy%20the%20Maa%20Durga%20artwork."
-                           target="_blank"
-                           rel="noopener">
-                            Buy / Enquire
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="custom-painting-cta">
-            <a class="btn btn-outline"
-               href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20request%20a%20Custom%20Painting."
-               target="_blank" rel="noopener">
+<div class="container featured-layout"><div class="featured-intro"><div class="heading reveal">
+<div class="tag">ART FOR SALE</div>
+<h2>An original.
+Only yours.</h2>
+<p>Explore original artwork from Satyam Art Gallery.</p>
+</div><div class="custom-painting-cta">
+<a class="btn btn-outline" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20request%20a%20Custom%20Painting." rel="noopener" target="_blank">
                 Request Custom Painting
             </a>
-        </div>
+</div></div>
 
-    </div>
+<div class="paintings-grid">
+<article class="paint reveal">
+<div class="paint-image">
+<img alt="Maa Durga with Lion - Original Artwork by Satyam Singh" data-full-image="art-lion-goddess.png" decoding="async" height="1536" loading="lazy" src="art-lion-goddess.webp" width="1536"/>
+<span class="art-badge">ORIGINAL</span>
+</div>
+<div class="paint-info">
+<h3>Maa Durga</h3>
+<p>Original Hand-drawn Artwork by Satyam Singh</p>
+<div class="paint-price">₹2,499</div>
+<div class="paint-actions">
+<button aria-label="View Maa Durga full image" class="btn btn-outline view-art" data-image="art-lion-goddess.png" data-title="Maa Durga">
+                            View Artwork
+                        </button><noscript><a class="btn btn-outline" href="art-lion-goddess.png">View Maa Durga full image</a></noscript>
+<a class="btn btn-dark" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20buy%20the%20Maa%20Durga%20artwork." rel="noopener" target="_blank">
+                            Buy / Enquire
+                        </a>
+</div>
+</div>
+</article>
+</div>
+
+</div>
 </section>
-
 <!-- MORE ARTWORK GALLERY -->
-<section id="more-art" class="more-gallery">
-    <div class="container">
-
-        <div class="heading reveal">
-            <div class="tag">04 / More Original Artwork</div>
-            <h2>More From The Gallery</h2>
-            <p>Explore more hand-drawn and hand-painted artwork. Open any artwork for a larger view.</p>
-        </div>
-
-        <div class="gallery-grid">
-
-            <article class="gallery-card reveal">
-                <div class="gallery-image">
-                    <img src="art-guru.webp" data-full-image="art-guru.jpg" alt="Colourful Guru artwork" width="1472" height="1536" decoding="async" loading="lazy">
-                    <span>ORIGINAL</span>
-                </div>
-
-                <div class="gallery-info">
-                    <h3>Colourful Guru</h3>
-                    <p>Hand-painted original artwork</p>
-
-                    <button class="btn btn-outline view-art"
-                            data-image="art-guru.jpg"
-                            data-title="Colourful Guru" aria-label="View Colourful Guru full image">
+<section class="more-gallery" id="more-art">
+<div class="container">
+<div class="heading reveal">
+<div class="tag">THE COLLECTION</div>
+<h2>More from the gallery</h2>
+<p>Explore more hand-drawn and hand-painted artwork. Open any artwork for a larger view.</p>
+</div>
+<div class="gallery-grid">
+<article class="gallery-card reveal">
+<div class="gallery-image">
+<img alt="Colourful Guru artwork" data-full-image="art-guru.jpg" decoding="async" height="1536" loading="lazy" src="art-guru.webp" width="1472"/>
+<span>ORIGINAL</span>
+</div>
+<div class="gallery-info">
+<h3>Colourful Guru</h3>
+<p>Hand-painted original artwork</p>
+<button aria-label="View Colourful Guru full image" class="btn btn-outline view-art" data-image="art-guru.jpg" data-title="Colourful Guru">
                         View Artwork
                     </button><noscript><a class="btn btn-outline" href="art-guru.jpg">View Colourful Guru full image</a></noscript>
-                </div>
-            </article>
-
-            <article class="gallery-card reveal">
-                <div class="gallery-image">
-                    <img src="art-portrait.webp" data-full-image="art-portrait.jpg" alt="Pencil portrait artwork" width="1536" height="952" decoding="async" loading="lazy">
-                    <span>PENCIL ART</span>
-                </div>
-
-                <div class="gallery-info">
-                    <h3>Detailed Portrait</h3>
-                    <p>Graphite pencil portrait</p>
-
-                    <button class="btn btn-outline view-art"
-                            data-image="art-portrait.jpg"
-                            data-title="Detailed Portrait" aria-label="View Detailed Portrait full image">
+</div>
+</article>
+<article class="gallery-card reveal">
+<div class="gallery-image">
+<img alt="Pencil portrait artwork" data-full-image="art-portrait.jpg" decoding="async" height="952" loading="lazy" src="art-portrait.webp" width="1536"/>
+<span>PENCIL ART</span>
+</div>
+<div class="gallery-info">
+<h3>Detailed Portrait</h3>
+<p>Graphite pencil portrait</p>
+<button aria-label="View Detailed Portrait full image" class="btn btn-outline view-art" data-image="art-portrait.jpg" data-title="Detailed Portrait">
                         View Artwork
                     </button><noscript><a class="btn btn-outline" href="art-portrait.jpg">View Detailed Portrait full image</a></noscript>
-                </div>
-            </article>
-
-            <article class="gallery-card reveal">
-                <div class="gallery-image">
-                    <img src="art-sunflower-girl.webp" data-full-image="art-sunflower-girl.png" alt="Girl with sunflowers artwork" width="1150" height="1536" decoding="async" loading="lazy">
-                    <span>ORIGINAL</span>
-                </div>
-
-                <div class="gallery-info">
-                    <h3>Sunflower Girl</h3>
-                    <p>Colour artwork | Hand-painted</p>
-
-                    <button class="btn btn-outline view-art"
-                            data-image="art-sunflower-girl.png"
-                            data-title="Sunflower Girl" aria-label="View Sunflower Girl full image">
+</div>
+</article>
+<article class="gallery-card reveal">
+<div class="gallery-image">
+<img alt="Girl with sunflowers artwork" data-full-image="art-sunflower-girl.png" decoding="async" height="1536" loading="lazy" src="art-sunflower-girl.webp" width="1150"/>
+<span>ORIGINAL</span>
+</div>
+<div class="gallery-info">
+<h3>Sunflower Girl</h3>
+<p>Colour artwork | Hand-painted</p>
+<button aria-label="View Sunflower Girl full image" class="btn btn-outline view-art" data-image="art-sunflower-girl.png" data-title="Sunflower Girl">
                         View Artwork
                     </button><noscript><a class="btn btn-outline" href="art-sunflower-girl.png">View Sunflower Girl full image</a></noscript>
-                </div>
-            </article>
-
-        </div>
-
-        <div class="gallery-bottom">
-            <a class="btn btn-dark"
-               href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20see%20more%20original%20artwork."
-               target="_blank" rel="noopener">
+</div>
+</article>
+</div>
+<div class="gallery-bottom">
+<a class="btn btn-dark" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20see%20more%20original%20artwork." rel="noopener" target="_blank">
                 Ask About More Artwork
             </a>
-        </div>
-
-    </div>
+</div>
+</div>
 </section>
-
 <!-- ORDER PROCESS -->
-<section id="order" class="process">
-    <div class="container">
-
-        <div class="heading reveal">
-            <div class="tag">05 / Simple Process</div>
-            <h2>How To Order</h2>
-            <p>Three simple steps from your photo to your artwork.</p>
-        </div>
-
-        <div class="steps">
-            <div class="step reveal">
-                <span>STEP 01</span>
-                <h3>Choose Artwork</h3>
-            </div>
-
-            <div class="step reveal">
-                <span>STEP 02</span>
-                <h3>Send Photo</h3>
-            </div>
-
-            <div class="step reveal">
-                <span>STEP 03</span>
-                <h3>Confirm Order</h3>
-            </div>
-        </div>
-
-    <div class="wa-box order-contact reveal">
-
-        <div class="wa-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.34A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-3.06.8.82-2.98-.19-.31A8 8 0 1 1 12 20zm4.4-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
-            </svg>
-        </div>
-
-        <div class="wa-text">
-            <h3>Order on WhatsApp</h3>
-            <p>Send your photo or artwork requirement directly.</p>
-        </div>
-
-        <a class="wa-button"
-           style="display:inline-flex;align-items:center;justify-content:center;gap:8px;"
-           href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20place%20an%20artwork%20order."
-           target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;flex:none;" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.34A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-3.06.8.82-2.98-.19-.31A8 8 0 1 1 12 20zm4.4-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>WhatsApp
+<section class="process" id="order">
+<div class="container">
+<div class="heading reveal">
+<div class="tag">HOW IT WORKS</div>
+<h2>Your art, in three steps.</h2>
+<p>Three simple steps from your photo to your artwork.</p>
+</div>
+<div class="steps">
+<div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><rect height="32" rx="3" width="34" x="7" y="8"></rect><circle cx="18" cy="18" r="3"></circle><path d="m9 36 11-12 7 7 6-6 7 11"></path></svg>
+<span>STEP 01</span>
+<h3>Choose Artwork</h3>
+</div>
+<div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><path d="M24 33V5m-10 11L24 5l10 11M7 29v13h34V29"></path></svg>
+<span>STEP 02</span>
+<h3>Send Photo</h3>
+</div>
+<div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><path d="m8 25 11 11L41 12"></path></svg>
+<span>STEP 03</span>
+<h3>Confirm Order</h3>
+</div>
+</div>
+<div class="wa-box order-contact reveal">
+<div class="wa-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24">
+<path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.34A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-3.06.8.82-2.98-.19-.31A8 8 0 1 1 12 20zm4.4-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"></path>
+</svg>
+</div>
+<div class="wa-text">
+<h3>Order on WhatsApp</h3>
+<p>Send your photo or artwork requirement directly.</p>
+</div>
+<a class="wa-button" href="https://wa.me/916207583683?text=Hello%20Satyam%20Art%20Gallery,%20I%20want%20to%20place%20an%20artwork%20order." rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;" target="_blank">
+<svg aria-hidden="true" fill="currentColor" style="width:18px;height:18px;flex:none;" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.34A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-3.06.8.82-2.98-.19-.31A8 8 0 1 1 12 20zm4.4-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"></path></svg>WhatsApp
         </a>
-    </div>
-
-    </div>
+</div>
+</div>
 </section>
-
 </main>
-
 <!-- FOOTER -->
-<footer>
-    <!-- SOCIAL LINKS (gold pill buttons - styled in Style.css) -->
-    <div class="social-links">
-
-        <a class="social-btn" href="https://www.instagram.com/satyam_singh__.12" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                <circle cx="12" cy="12" r="4.2"/>
-                <circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/>
-            </svg>
+<footer><div class="footer-brand"><a aria-label="Satyam Art Gallery home" class="logo" href="index.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 48 48"><path d="M40 26c6-9-2-20-15-20C13 6 5 14 5 25c0 10 7 17 16 17 5 0 7-3 5-6-3-4 2-6 6-5 4 1 6-1 8-5Z"></path><circle cx="15" cy="21" r="2"></circle><circle cx="23" cy="14" r="2"></circle><circle cx="33" cy="18" r="2"></circle><path d="m23 30 19-23 3 3-19 23-6 3Z"></path></svg><span class="brand-type"><strong>Satyam</strong><small>ART GALLERY</small></span></a><p>Custom sketches, portraits and paintings.</p></div><nav aria-label="Footer navigation" class="footer-nav"><a href="#services">Services</a><a href="#paintings">Paintings</a><a href="#more-art">Gallery</a><a href="About.html">About Satyam</a></nav>
+<!-- SOCIAL LINKS (gold pill buttons - styled in Style.css) -->
+<div class="social-links">
+<a class="social-btn" href="https://www.instagram.com/satyam_singh__.12" rel="noopener" target="_blank">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<rect height="18" rx="5" width="18" x="3" y="3"></rect>
+<circle cx="12" cy="12" r="4.2"></circle>
+<circle cx="17.3" cy="6.7" fill="currentColor" r="1" stroke="none"></circle>
+</svg>
             Instagram
         </a>
-
-        <a class="social-btn" href="https://youtube.com/@satyamart4183" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-                <path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/>
-            </svg>
+<a class="social-btn" href="https://youtube.com/@satyamart4183" rel="noopener" target="_blank">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"></path>
+</svg>
             YouTube
         </a>
-
-    </div>
-
-    <p class="copyright">
-        &copy; 2026 <strong>Satyam Art Gallery</strong>. All rights reserved.
+</div>
+<p class="copyright">
+        © 2026 <strong>Satyam Art Gallery</strong>. All rights reserved.
     </p>
 </footer>
-
 <script src="script.js"></script>
-
 <script>
 /* Shared click feedback and accessible, original-image previews. */
 (() => {
@@ -701,4 +554,4 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 
 </script>
 </body>
-                </html>
+</html>
