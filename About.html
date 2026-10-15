@@ -876,7 +876,6 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <meta property="og:image" content="https://satyam2026.vercel.app/Satyam.jpg">
 <meta property="og:image:alt" content="Satyam, artist">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="feedback.css">
 </head>
 
 <body>
@@ -1121,42 +1120,6 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 
 <footer class="footer">
 
-    <!-- Feedback opens the visitor's email app; it does not send automatically. -->
-    <section class="feedback-panel" aria-labelledby="feedback-title" data-feedback-recipient="anilprasad88273@gmail.com">
-        <p class="feedback-eyebrow">Your thoughts matter</p>
-        <h2 id="feedback-title">Share your feedback</h2>
-        <p class="feedback-intro">Tell us what you liked, or what we could improve.</p>
-        <form class="feedback-form" hidden aria-describedby="feedback-note">
-            <div class="feedback-fields">
-                <div class="feedback-field">
-                    <label for="feedback-name">Your name (required)</label>
-                    <input id="feedback-name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Your name">
-                </div>
-                <div class="feedback-field">
-                    <label for="feedback-email">Your email (required)</label>
-                    <input id="feedback-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="you@example.com">
-                </div>
-            </div>
-            <div class="feedback-field">
-                <label for="feedback-message">Your feedback (required)</label>
-                <textarea id="feedback-message" name="feedback" rows="4" required maxlength="1200" placeholder="How was your experience with the gallery?"></textarea>
-            </div>
-            <p class="feedback-note" id="feedback-note">This opens a draft in your email app. Review and send it there. This website does not store or send your feedback automatically. Please do not include sensitive information.</p>
-            <div class="feedback-actions">
-                <button class="feedback-submit" type="submit">Open email draft</button>
-                <button class="feedback-copy" type="button">Copy feedback</button>
-            </div>
-        </form>
-        <p class="feedback-status" role="status" aria-live="polite" aria-atomic="true"></p>
-        <div class="feedback-manual" hidden>
-            <label for="feedback-draft">Your email draft (copy and send from your email app)</label>
-            <textarea id="feedback-draft" class="feedback-draft" readonly rows="7"></textarea>
-        </div>
-        <p class="feedback-note"><a class="feedback-email-link" href="mailto:anilprasad88273@gmail.com">anilprasad88273@gmail.com</a></p>
-        <noscript><p class="feedback-note">The feedback draft form needs JavaScript. You can use the email address above to send your feedback directly.</p></noscript>
-    </section>
-
-
     &copy; 2026
     <span>Satyam Art Gallery</span>
     &bull; Custom Art Studio
@@ -1265,6 +1228,5 @@ artistImage.addEventListener(
 
 </script>
 
-<script src="feedback.js"></script>
 </body>
 </html>
