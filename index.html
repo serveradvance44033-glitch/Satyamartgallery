@@ -139,7 +139,8 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <meta content="https://satyam2026.vercel.app/art-hanuman.png" property="og:image"/>
 <meta content="Original Hanuman artwork" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="Gallery.css" rel="stylesheet"/></head>
+<link href="Gallery.css" rel="stylesheet"/><link href="Spatial.css" rel="stylesheet"/>
+</head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- INTRO -->
@@ -214,12 +215,26 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
                 </a>
 </div>
 </div>
-<div aria-label="Original artwork displayed in a gallery setting" class="hero-visual">
-<div class="gallery-wall"><div aria-hidden="true" class="ceiling-rail"><i></i><i></i><i></i></div>
-<figure class="wall-frame side-frame"><img alt="Pencil portrait artwork" class="hero-image" data-full-image="art-portrait.jpg" height="952" loading="eager" src="art-portrait.webp" width="1536"/><figcaption>GRAPHITE / PORTRAIT</figcaption></figure>
-<figure class="wall-frame main-frame"><img alt="Original Hanuman artwork by Satyam Art Gallery" class="hero-image" data-full-image="art-hanuman.png" fetchpriority="high" height="1536" src="art-hanuman.webp" width="1536"/><figcaption>HANUMAN / ORIGINAL ARTWORK</figcaption></figure>
-<figure class="wall-frame far-frame"><img alt="Girl with sunflowers artwork" class="hero-image" data-full-image="art-sunflower-girl.png" height="1536" loading="eager" src="art-sunflower-girl.webp" width="1150"/><figcaption>COLOUR / HAND-PAINTED</figcaption></figure>
-</div><div aria-hidden="true" class="gallery-floor"></div><p class="room-caption">Every artwork tells a story.<span>SELECTED WORKS BY SATYAM</span></p>
+<div aria-label="Interactive three-dimensional gallery of original artwork" class="hero-visual spatial-room" data-spatial="room">
+<div class="room-viewport">
+<div class="room-stage">
+<div class="room-ceiling" aria-hidden="true"></div>
+<div class="room-back" aria-hidden="true"></div>
+<div class="room-left" aria-hidden="true"></div>
+<div class="room-right" aria-hidden="true"></div>
+<div class="room-floor" aria-hidden="true"><div class="floor-glow"></div></div>
+<div class="room-track" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="room-beams" aria-hidden="true"><i></i><i></i><i></i></div>
+<figure class="exhibit exhibit-left"><div class="frame-depth"><img alt="Pencil portrait artwork" class="hero-image" data-full-image="art-portrait.jpg" height="952" loading="eager" src="art-portrait.webp" width="1536"/></div><figcaption>01 / GRAPHITE PORTRAIT</figcaption></figure>
+<figure class="exhibit exhibit-centre"><div class="frame-depth"><img alt="Original Hanuman artwork by Satyam Art Gallery" class="hero-image" data-full-image="art-hanuman.png" fetchpriority="high" height="1536" src="art-hanuman.webp" width="1536"/></div><figcaption>02 / HANUMAN</figcaption></figure>
+<figure class="exhibit exhibit-right"><div class="frame-depth"><img alt="Girl with sunflowers artwork" class="hero-image" data-full-image="art-sunflower-girl.png" height="1536" loading="eager" src="art-sunflower-girl.webp" width="1150"/></div><figcaption>03 / COLOUR STUDY</figcaption></figure>
+<div class="room-reflections" aria-hidden="true"><img src="art-portrait.webp" alt=""/><img src="art-hanuman.webp" alt=""/><img src="art-sunflower-girl.webp" alt=""/></div>
+<div class="gallery-bench" aria-hidden="true"><span></span></div>
+<div class="room-easel" aria-hidden="true"><i></i><b></b><span></span><div class="easel-canvas"><img src="art-guru.webp" alt=""/></div></div>
+<div class="room-inscription" aria-hidden="true">Every artwork<br/>tells a story.<span>SATYAM</span></div>
+<div class="room-threshold" aria-hidden="true"></div>
+</div></div>
+<p class="room-caption">Step into the art.<span>MOVE YOUR POINTER OR TOUCH TO EXPLORE</span></p>
 </div>
 <a class="scroll-cue" href="#services"><span>↓</span> Explore the collection</a></div>
 </section>
@@ -553,5 +568,6 @@ Only yours.</h2>
 })();
 
 </script>
+<script src="spatial.js" defer></script>
 </body>
 </html>

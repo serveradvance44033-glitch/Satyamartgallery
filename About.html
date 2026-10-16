@@ -955,7 +955,8 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 @keyframes preview-open { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { dialog.lightbox .lightbox-content { animation: none; } }
 
-</style></head>
+</style><link href="Spatial.css" rel="stylesheet"/>
+</head>
 <body class="artist-site">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- Background -->
@@ -984,7 +985,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 <!-- =====================
          ARTIST PHOTO
     ====================== -->
-<div class="photo-area reveal">
+<div class="photo-area reveal spatial-portrait" data-spatial="portrait"><div class="portrait-room-wall" aria-hidden="true"></div><div class="portrait-room-floor" aria-hidden="true"></div><div class="portrait-spot" aria-hidden="true"></div>
 <div class="orbit"></div>
 <div class="photo-ring">
 <div class="photo-inner">
@@ -1263,5 +1264,6 @@ artistImage.addEventListener(
     });
 })();
 
-</script></body>
+</script><script src="spatial.js" defer></script>
+</body>
 </html>
