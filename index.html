@@ -139,7 +139,7 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <meta content="https://satyam2026.vercel.app/art-hanuman.png" property="og:image"/>
 <meta content="Original Hanuman artwork" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<link href="Gallery.css" rel="stylesheet"/><link href="Spatial.css" rel="stylesheet"/><link href="Exhibition.css" rel="stylesheet"/>
+<link href="Gallery.css" rel="stylesheet"/><link href="Spatial.css" rel="stylesheet"/><link href="Exhibition.css" rel="stylesheet"/><link href="site-enhancements.css" rel="stylesheet"/>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -327,7 +327,7 @@ Only yours.</h2>
 </div></div>
 
 <div class="paintings-grid">
-<article class="paint reveal">
+<article class="paint reveal" data-artwork-categories="painting">
 <div class="paint-image">
 <img alt="Maa Durga with Lion - Original Artwork by Satyam Singh" data-full-image="art-lion-goddess.png" decoding="async" height="1536" loading="lazy" src="art-lion-goddess.webp" width="1536"/>
 <span class="art-badge">ORIGINAL</span>
@@ -358,8 +358,18 @@ Only yours.</h2>
 <h2>More from the gallery</h2>
 <p>Explore more hand-drawn and hand-painted artwork. Open any artwork for a larger view.</p>
 </div>
+<div class="gallery-filter-wrap">
+<p class="gallery-filter-help">Filter paintings and gallery artwork by style.</p>
+<div class="gallery-filters" id="galleryFilters" role="group" aria-label="Filter artwork" hidden>
+<button class="gallery-filter is-active" type="button" data-gallery-filter="all" aria-pressed="true">All</button>
+<button class="gallery-filter" type="button" data-gallery-filter="pencil" aria-pressed="false">Pencil</button>
+<button class="gallery-filter" type="button" data-gallery-filter="colour" aria-pressed="false">Colour</button>
+<button class="gallery-filter" type="button" data-gallery-filter="painting" aria-pressed="false">Paintings</button>
+</div>
+<p class="gallery-filter-status" id="galleryFilterStatus" role="status" aria-live="polite">All artwork is shown.</p>
+</div>
 <div class="gallery-grid">
-<article class="gallery-card reveal">
+<article class="gallery-card reveal" data-artwork-categories="painting">
 <div class="gallery-image">
 <img alt="Premanand Maharaj artwork" data-full-image="art-guru.jpg" decoding="async" height="1536" loading="lazy" src="art-guru.webp" width="1472"/>
 <span>ORIGINAL</span>
@@ -372,7 +382,7 @@ Only yours.</h2>
                     </button><noscript><a class="btn btn-outline" href="art-guru.jpg">View Premanand Maharaj full image</a></noscript>
 </div>
 </article>
-<article class="gallery-card reveal">
+<article class="gallery-card reveal" data-artwork-categories="pencil">
 <div class="gallery-image">
 <img alt="Pencil portrait artwork" data-full-image="art-portrait.jpg" decoding="async" height="952" loading="lazy" src="art-portrait.webp" width="1536"/>
 <span>PENCIL ART</span>
@@ -385,7 +395,7 @@ Only yours.</h2>
                     </button><noscript><a class="btn btn-outline" href="art-portrait.jpg">View Sketch pencil portrait art full image</a></noscript>
 </div>
 </article>
-<article class="gallery-card reveal">
+<article class="gallery-card reveal" data-artwork-categories="colour painting">
 <div class="gallery-image">
 <img alt="Girl with sunflowers artwork" data-full-image="art-sunflower-girl.png" decoding="async" height="1536" loading="lazy" src="art-sunflower-girl.webp" width="1150"/>
 <span>ORIGINAL</span>
@@ -438,9 +448,32 @@ Only yours.</h2>
 <h3>Order on WhatsApp</h3>
 <p>Send your photo or artwork requirement directly.</p>
 </div>
-<a class="wa-button" href="https://wa.me/916207583683?text=Hello%20Satyam,%20I%20want%20to%20place%20an%20artwork%20order." rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;" target="_blank">
-<svg aria-hidden="true" fill="currentColor" style="width:18px;height:18px;flex:none;" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.34A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.08-1.12l-.29-.17-3.06.8.82-2.98-.19-.31A8 8 0 1 1 12 20zm4.4-5.97c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.33.98 2.49c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"></path></svg>WhatsApp
-        </a>
+<form class="wa-enquiry-form" id="whatsappEnquiry" action="https://wa.me/916207583683" method="get" target="_blank" rel="noopener noreferrer">
+<input type="hidden" name="text" value="Hello Satyam, I want to place an artwork order."/>
+<div class="wa-enquiry-fields">
+<label for="waArtwork">Sketch or artwork
+<select id="waArtwork" required>
+<option value="" selected disabled>Choose one</option>
+<optgroup label="Sketch services">
+<option>Face Sketch</option><option>Half Body Sketch</option><option>Full Image Sketch</option><option>Couple Sketch</option><option>Family Sketch</option><option>Pet Sketch</option><option>Colour Sketch</option>
+</optgroup>
+<optgroup label="Artwork">
+<option>Maa Durga</option><option>Premanand Maharaj</option><option>Sketch pencil portrait art</option><option>Sunflower Girl</option><option>Custom Painting</option>
+</optgroup>
+<option>Something else / not sure yet</option>
+</select>
+</label>
+<label for="waSize">Preferred size or notes (optional)
+<input id="waSize" type="text" maxlength="120" autocomplete="off"/>
+</label>
+<label for="waPeople">People in the portrait (if applicable)
+<input id="waPeople" type="number" min="1" step="1" inputmode="numeric"/>
+</label>
+</div>
+<button class="wa-button" type="submit">Continue in WhatsApp</button>
+<p class="wa-enquiry-note">WhatsApp opens with a message for you to review. Add a reference photo there if needed, then tap Send.</p>
+<noscript><p class="wa-enquiry-note">JavaScript is off, so the general order message will open.</p></noscript>
+</form>
 </div>
 </div>
 </section>
@@ -569,5 +602,6 @@ Only yours.</h2>
 
 </script>
 <script src="spatial.js" defer></script>
+<script src="site-enhancements.js" defer></script>
 </body>
 </html>

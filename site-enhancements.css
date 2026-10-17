@@ -1,0 +1,43 @@
+/* Small, accessible upgrades to browsing and WhatsApp enquiries. */
+.gallery-filter-wrap { margin: 28px 0 24px; }
+.gallery-filter-help { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+#more-art .gallery-filters { display: flex; flex-wrap: wrap; gap: 9px; }
+#more-art .gallery-filters[hidden] { display: none !important; }
+.gallery-filter {
+    min-height: 44px; padding: 9px 18px; border: 1px solid rgba(215,179,106,.38);
+    border-radius: 999px; background: rgba(15,20,17,.84); color: var(--text);
+    font: 600 13px/1.2 Inter, sans-serif; cursor: pointer;
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+.gallery-filter:hover, .gallery-filter.is-active { background: linear-gradient(135deg,#ead099,#d7b36a); color: #17130c; border-color: #eed6a4; }
+.gallery-filter:focus-visible { outline: 3px solid #f1d38f; outline-offset: 4px; }
+#more-art [data-artwork-categories][hidden] { display: none !important; }
+.gallery-filter-status { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); font-size: 12px; }
+
+#order .order-contact.wa-box { display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 16px 20px; }
+#order .order-contact .wa-icon { grid-column: 1; grid-row: 1; }
+#order .order-contact .wa-text { grid-column: 2; grid-row: 1; min-width: 0; }
+#order .wa-enquiry-form { grid-column: 1 / -1; display: grid; gap: 13px; width: 100%; min-width: 0; }
+.wa-enquiry-fields { display: grid; grid-template-columns: 1.25fr 1fr .85fr; gap: 12px; }
+.wa-enquiry-fields label { display: grid; align-content: start; gap: 7px; color: var(--text); font-size: 12px; line-height: 1.45; }
+.wa-enquiry-fields input, .wa-enquiry-fields select {
+    width: 100%; min-width: 0; min-height: 48px; padding: 10px 12px;
+    border: 1px solid rgba(222,211,183,.3); border-radius: 9px;
+    background: #101613; color: var(--text); font: 500 14px/1.3 Inter, sans-serif;
+}
+.wa-enquiry-fields input:focus-visible, .wa-enquiry-fields select:focus-visible { outline: 3px solid #f1d38f; outline-offset: 2px; }
+.wa-enquiry-form .wa-button { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; border: 0; font: 700 14px/1.3 Inter, sans-serif; cursor: pointer; }
+.wa-enquiry-note { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+@media (max-width: 760px) { .wa-enquiry-fields { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+    #order .order-contact.wa-box { grid-template-columns: 1fr; gap: 16px; }
+    #order .order-contact .wa-icon, #order .order-contact .wa-text { grid-column: 1; grid-row: auto; }
+    #order .wa-enquiry-form { grid-column: 1; }
+}
+/* Avoid a sticky scale-up on touch screens; preserve the small 3D frame depth. */
+@media (hover: none) and (pointer: coarse) {
+    .paint.depth-panel:hover .paint-image img, .gallery-card.depth-panel:hover .gallery-image img { transform: translateZ(24px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .gallery-filter, .gallery-filter:hover, .gallery-filter.is-active { transition: none; }
+}

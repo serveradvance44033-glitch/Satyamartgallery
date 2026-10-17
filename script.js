@@ -1,14 +1,19 @@
 /* PARTICLES GENERATOR */
 const particles = document.getElementById("particles");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const particlesVisible = particles && getComputedStyle(particles).display !== "none";
 
-for (let i = 0; i < 55; i++) {
-    const p = document.createElement("span");
-    p.className = "particle";
-    p.style.left = Math.random() * 100 + "%";
-    p.style.animationDuration = (6 + Math.random() * 12) + "s";
-    p.style.animationDelay = Math.random() * 12 + "s";
-    p.style.opacity = .15 + Math.random() * .5;
-    particles.appendChild(p);
+// Skip creating decorative nodes when the layer is hidden or motion is reduced.
+if (particlesVisible && !reducedMotion) {
+    for (let i = 0; i < 55; i++) {
+        const p = document.createElement("span");
+        p.className = "particle";
+        p.style.left = Math.random() * 100 + "%";
+        p.style.animationDuration = (6 + Math.random() * 12) + "s";
+        p.style.animationDelay = Math.random() * 12 + "s";
+        p.style.opacity = .15 + Math.random() * .5;
+        particles.appendChild(p);
+    }
 }
 
 /* SCROLL REVEAL OBSERVER */
