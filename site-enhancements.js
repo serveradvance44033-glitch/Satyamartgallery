@@ -39,6 +39,12 @@
   const reviewButton = document.getElementById('waReviewButton');
   const nameInput = document.getElementById('waName');
   const phoneInput = document.getElementById('waPhone');
+  const photoInput = document.getElementById('waPhoto');
+  const photoStatus = document.getElementById('waPhotoStatus');
+  const photoPreview = document.getElementById('waPhotoPreview');
+  const photoImage = document.getElementById('waPhotoImage');
+  let photoUrl = '';
+  let photoReady = false;
   let reviewed = false;
 
   function message() {
@@ -50,7 +56,7 @@
     if (people) lines.push(`People in the portrait: ${people}.`);
     const requirements = document.getElementById('waRequirements').value.trim();
     if (requirements) lines.push(`Portrait description / requirements: ${requirements}`);
-    lines.push('I can share a reference photo in this chat if needed.');
+    lines.push(photoReady ? 'A reference photo was previewed on my device only. The website has not uploaded or sent it.' : 'I can share a reference photo in this chat if needed.');
     lines.push('Please confirm the final quote, size, medium, frame options, payment terms, completion time and delivery details before I confirm the order.');
     return lines.join('\n');
   }
@@ -58,12 +64,53 @@
     reviewed = false;
     review.hidden = true;
     reviewButton.hidden = false;
+    document.getElementById('waReviewPhoto').hidden = true;
+    document.getElementById('waReviewPhotoImage').removeAttribute('src');
   }
   function updatePeople() {
     const portrait = ['Face Sketch', 'Half Body Sketch', 'Full Image Sketch', 'Couple Sketch', 'Family Sketch', 'Colour Sketch', 'Custom Painting', 'Something else / not sure yet'].includes(artworkInput.value);
     peopleField.hidden = !portrait;
     peopleInput.disabled = !portrait;
   }
+  function clearPhoto(clearInput = true) {
+    photoReady = false;
+    photoPreview.hidden = true;
+    photoImage.removeAttribute('src');
+    if (photoUrl) URL.revokeObjectURL(photoUrl);
+    photoUrl = '';
+    if (clearInput) photoInput.value = '';
+    invalidateReview();
+  }
+  photoInput.addEventListener('change', () => {
+    const file = photoInput.files[0];
+    clearPhoto(false);
+    if (!file) { photoStatus.textContent = ''; return; }
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 10 * 1024 * 1024) {
+      photoInput.value = '';
+      photoStatus.textContent = 'Choose a JPG, PNG or WebP image no larger than 10 MB. Nothing was uploaded.';
+      return;
+    }
+    photoUrl = URL.createObjectURL(file);
+    const currentUrl = photoUrl;
+    photoImage.onload = () => {
+      if (currentUrl !== photoUrl) return;
+      photoReady = true;
+      photoPreview.hidden = false;
+      photoStatus.textContent = 'Preview only — your photo stays on this device. It has not been uploaded or sent to Satyam.';
+      invalidateReview();
+    };
+    photoImage.onerror = () => {
+      if (currentUrl !== photoUrl) return;
+      clearPhoto();
+      photoStatus.textContent = 'This image could not be previewed. Please choose another JPG, PNG or WebP photo. Nothing was uploaded.';
+    };
+    photoImage.src = photoUrl;
+  });
+  document.getElementById('waRemovePhoto').addEventListener('click', () => {
+    clearPhoto();
+    photoStatus.textContent = 'Preview removed. Nothing was uploaded or sent.';
+    photoInput.focus();
+  });
   reviewButton.textContent = 'Review order enquiry';
   updatePeople();
   function validateCustomer() {
@@ -86,6 +133,8 @@
     if (reviewed) return; // Only opens a draft; the visitor sends in WhatsApp.
     event.preventDefault();
     document.getElementById('waReviewText').textContent = message();
+    document.getElementById('waReviewPhoto').hidden = !photoReady;
+    if (photoReady) document.getElementById('waReviewPhotoImage').src = photoUrl;
     review.hidden = false;
     reviewButton.hidden = true;
     reviewed = true;

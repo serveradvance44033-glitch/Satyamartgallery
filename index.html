@@ -178,7 +178,7 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <a href="About.html">About Satyam</a></div>
 <div class="nav-actions">
 
-<a class="nav-cta" href="#order">Order Now</a>
+<a class="nav-cta" href="checkout.html">Order Now</a>
 <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle" type="button">
 <span></span>
 <span></span>
@@ -507,12 +507,23 @@ Only yours.</h2>
 <label class="wa-requirements" for="waRequirements">How would you like your portrait? (optional)
 <textarea id="waRequirements" rows="3" maxlength="600" placeholder="Describe the pose, background, style, changes to the reference photo, frame preference or any questions"></textarea>
 </label>
-<p class="wa-enquiry-note">Reference photos cannot be submitted on this website yet. This form prepares a text enquiry only; it does not upload or deliver an image.</p>
+<div class="wa-photo-field">
+<label for="waPhoto">Select photo (optional — preview only)</label>
+<input id="waPhoto" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="waPhotoHelp waPhotoStatus"/>
+<p class="wa-enquiry-note" id="waPhotoHelp">JPG, PNG or WebP, up to 10 MB. Pick a clear photo with the face and details visible. Your photo stays on your device. It is not uploaded or sent to Satyam. Website photo submission is not available yet; this form can send text details only.</p>
+<p class="wa-photo-status" id="waPhotoStatus" role="status" aria-live="polite"></p>
+<div class="wa-photo-preview" id="waPhotoPreview" hidden>
+<img id="waPhotoImage" alt="Your selected reference photo — preview only, not sent"/>
+<button class="btn btn-outline" id="waRemovePhoto" type="button">Remove photo preview</button>
+</div>
+<noscript><p class="wa-enquiry-note">Photo preview needs JavaScript. Attach your reference directly in WhatsApp instead.</p></noscript>
+</div>
 <p class="wa-enquiry-note">Your details are added only to the WhatsApp draft. This form does not save them or place an order. Review the draft and tap Send in WhatsApp to share them with Satyam.</p>
 <button class="wa-button" id="waReviewButton" type="submit">Continue in WhatsApp</button>
 <section class="order-review" id="waReview" aria-labelledby="waReviewHeading" hidden>
 <h4 id="waReviewHeading" tabindex="-1">Review your enquiry</h4>
 <pre id="waReviewText"></pre>
+<figure class="wa-review-photo" id="waReviewPhoto" hidden><img id="waReviewPhotoImage" alt="Selected reference photo — local preview only"/><figcaption>Photo preview only. This image is not uploaded or included in the WhatsApp draft.</figcaption></figure>
 <p>Check the details above. You can edit them before continuing. No order or payment is confirmed here.</p>
 <div class="order-review-actions">
 <button class="btn btn-outline" id="waEditButton" type="button">Edit details</button>
