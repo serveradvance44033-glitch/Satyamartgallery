@@ -429,27 +429,40 @@ Only yours.</h2>
 </div>
 </section>
 <!-- ORDER PROCESS -->
-<section class="process" id="order">
+<section class="process" id="order" aria-labelledby="orderHeading">
 <div class="container">
 <div class="heading reveal">
 <div class="tag">HOW IT WORKS</div>
-<h2>Your art, in three steps.</h2>
-<p>Three simple steps from your photo to your artwork.</p>
+<h2 id="orderHeading" tabindex="-1">How to order your artwork.</h2>
+<p>Choose your artwork, share the details, then agree your order directly with Satyam on WhatsApp.</p>
 </div>
 <div class="steps">
 <div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><rect height="32" rx="3" width="34" x="7" y="8"></rect><circle cx="18" cy="18" r="3"></circle><path d="m9 36 11-12 7 7 6-6 7 11"></path></svg>
 <span>STEP 01</span>
-<h3>Choose Artwork</h3>
+<h3>Choose your artwork</h3>
+<p>Select a sketch service or a gallery artwork below. Add your preferred size, number of people if relevant, and any special requirements. Not sure about a size? Ask Satyam for guidance.</p>
 </div>
 <div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><path d="M24 33V5m-10 11L24 5l10 11M7 29v13h34V29"></path></svg>
 <span>STEP 02</span>
-<h3>Send Photo</h3>
+<h3>Share and discuss</h3>
+<p>Review your enquiry, open WhatsApp and tap Send. For a custom sketch, attach a clear reference photo there with the face and details visible. Photos are shared in WhatsApp, not uploaded by this form.</p>
 </div>
 <div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><path d="m8 25 11 11L41 12"></path></svg>
 <span>STEP 03</span>
-<h3>Confirm Order</h3>
+<h3>Review the quote and agree</h3>
+<p>Ask Satyam for the final quote and availability. Confirm size, medium, frame inclusion, payment terms and delivery details together before agreeing to the order. Opening a WhatsApp draft does not confirm an order or payment.</p>
 </div>
 </div>
+<aside class="order-guidance" aria-labelledby="orderChecklistHeading">
+<h3 id="orderChecklistHeading">Before you confirm</h3>
+<ul>
+<li><strong>Artwork:</strong> agree the design or reference photo, size, medium, number of people and whether a frame is included.</li>
+<li><strong>Quote and payment:</strong> confirm the final total, accepted payment method, any advance and when the balance is due directly with Satyam.</li>
+<li><strong>Timing and delivery:</strong> confirm the completion time, delivery or collection arrangements and any shipping charge before agreeing.</li>
+</ul>
+<p>This is an enquiry process, not an online checkout or live order tracker. Payment and delivery terms are confirmed with Satyam, not assumed here.</p>
+<a class="order-form-jump" href="#whatsappEnquiry">Start your enquiry below</a>
+</aside>
 <div class="wa-box order-contact reveal">
 <div class="wa-icon">
 <svg aria-hidden="true" viewbox="0 0 24 24">
@@ -457,11 +470,20 @@ Only yours.</h2>
 </svg>
 </div>
 <div class="wa-text">
-<h3>Order on WhatsApp</h3>
-<p>Send your photo or artwork requirement directly.</p>
+<h3>Start your order enquiry</h3>
+<p>Choose your artwork and add details. You can review the message before opening WhatsApp.</p>
 </div>
 <form class="wa-enquiry-form" id="whatsappEnquiry" action="https://wa.me/916207583683" method="get" target="_blank" rel="noopener noreferrer">
 <input type="hidden" name="text" value="Hello Satyam, I want to place an artwork order."/>
+<div class="wa-customer-fields">
+<label for="waName">Your name
+<input id="waName" type="text" autocomplete="name" maxlength="80" required/>
+</label>
+<label for="waPhone">Your phone / WhatsApp number
+<input id="waPhone" type="tel" autocomplete="tel" inputmode="tel" maxlength="25" aria-describedby="waPhoneHelp" required/>
+<span class="wa-field-help" id="waPhoneHelp">Include your country code if outside India. Use 7–15 digits.</span>
+</label>
+</div>
 <div class="wa-enquiry-fields">
 <label for="waArtwork">Sketch or artwork
 <select id="waArtwork" required>
@@ -475,17 +497,32 @@ Only yours.</h2>
 <option>Something else / not sure yet</option>
 </select>
 </label>
-<label for="waSize">Preferred size or notes (optional)
+<label for="waSize">Preferred size (optional)
 <input id="waSize" type="text" maxlength="120" autocomplete="off"/>
 </label>
-<label for="waPeople">People in the portrait (if applicable)
+<label for="waPeople" id="waPeopleField">People in the portrait (optional)
 <input id="waPeople" type="number" min="1" step="1" inputmode="numeric"/>
 </label>
 </div>
-<button class="wa-button" type="submit">Continue in WhatsApp</button>
+<label class="wa-requirements" for="waRequirements">How would you like your portrait? (optional)
+<textarea id="waRequirements" rows="3" maxlength="600" placeholder="Describe the pose, background, style, changes to the reference photo, frame preference or any questions"></textarea>
+</label>
+<p class="wa-enquiry-note">Reference photos cannot be submitted on this website yet. This form prepares a text enquiry only; it does not upload or deliver an image.</p>
+<p class="wa-enquiry-note">Your details are added only to the WhatsApp draft. This form does not save them or place an order. Review the draft and tap Send in WhatsApp to share them with Satyam.</p>
+<button class="wa-button" id="waReviewButton" type="submit">Continue in WhatsApp</button>
+<section class="order-review" id="waReview" aria-labelledby="waReviewHeading" hidden>
+<h4 id="waReviewHeading" tabindex="-1">Review your enquiry</h4>
+<pre id="waReviewText"></pre>
+<p>Check the details above. You can edit them before continuing. No order or payment is confirmed here.</p>
+<div class="order-review-actions">
+<button class="btn btn-outline" id="waEditButton" type="button">Edit details</button>
+<button class="wa-button" type="submit">Open WhatsApp draft</button>
+</div>
+</section>
 <p class="wa-enquiry-note">WhatsApp opens with a message for you to review. Add a reference photo there if needed, then tap Send.</p>
 <noscript><p class="wa-enquiry-note">JavaScript is off, so the general order message will open.</p></noscript>
 </form>
+<p class="order-update-help">Already placed an order? Ask Satyam for an update below. Include the artwork and any order reference you received in WhatsApp; this website does not show live progress.</p>
 <a class="btn btn-outline order-status-link" href="https://wa.me/916207583683?text=Hello%20Satyam,%20I%27d%20like%20an%20update%20on%20my%20order.%20My%20order%20details%20are:%20" aria-label="Ask Satyam for an order update on WhatsApp" rel="noopener noreferrer" target="_blank">Already ordered? Ask for an update</a>
 </div>
 </div>
