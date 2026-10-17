@@ -1,112 +1,36 @@
-🎨 Satyam Art Gallery
+# Satyam Art Shop
 
-«A modern, elegant and responsive digital art gallery website designed to showcase artwork and artist information.»
+Original artwork and custom sketch enquiries. Live website: https://satyam2026.vercel.app/
 
-🌐 Live Demo
+## Run locally
 
-Coming Soon
+No build step, package installation, database or API key is required. From this folder run:
 
-📸 About
+```sh
+python3 -m http.server 8000
+```
 
-Satyam Art Gallery is a modern web project created to present artwork in a beautiful, interactive and mobile-friendly interface.
+Open http://localhost:8000/. Serve the whole folder, not just `index.html`, so the artwork files and existing artist profile load correctly.
 
-The website focuses on a clean visual experience with smooth animations, modern UI elements and an artist-focused presentation.
+## Website behaviour
 
-✨ Features
+- Search and filter original artwork and sketch services; sort known prices.
+- Open artwork details to inspect the full-resolution originals.
+- Save favourites and an enquiry bag on the visitor's device. Storage is optional; browsing still works if the browser blocks it.
+- Prepare an enquiry for the existing artist WhatsApp destination. The visitor must review and send the message in WhatsApp.
+- Custom-art form validates required details and prepares a WhatsApp message. It does not submit to a server or save contact details.
+- No checkout, payment processing, order tracking or backend is configured. Prices, availability, shipping and payment must be confirmed directly with the artist. Prices marked `+` are starting prices; originals without a confirmed price remain enquiry-only.
 
-- 🎨 Modern art gallery interface
-- 👨‍🎨 Artist profile / About section
-- 🖼️ Artwork showcase
-- ✨ Smooth animations
-- 🌌 Modern dark UI
-- 💎 Glass-style UI elements
-- 📱 Fully responsive design
-- ⚡ Lightweight and fast
-- 📞 Contact section
-- 📱 Social media integration
-- 🔗 Easy-to-customize links
-- 📲 Mobile-friendly navigation
+## Deployment
 
-🛠️ Built With
+This is a static website. The existing Vercel project's production branch is `main`; GitHub pushes can trigger that project's existing deployment integration. A successful GitHub push alone does not prove deployment: check the Vercel status on the commit and inspect the live URL after publishing.
 
-- HTML5
-- CSS3
-- JavaScript
+For a separate static host, publish this repository's root directory with no build command. Keep filenames and capitalization intact (`About.html` and the local image assets). Do not add payment credentials or API secrets to HTML.
 
-📂 Project Structure
+Google Fonts improves the typography when available, with local serif/sans-serif fallbacks when offline. WhatsApp must be reachable on the visitor's device to send an enquiry.
 
-Satyam-Art-Gallery/
-│
-├── index.html
-├── about.html
-├── style.css
-├── script.js
-│
-├── images/
-│   ├── artist.jpg
-│   ├── artwork-1.jpg
-│   ├── artwork-2.jpg
-│   └── ...
-│
-└── README.md
+## Editing authentic content
 
-🚀 Getting Started
+The active homepage's style and behaviour are in `index.html`, including its `products` catalogue and `WHATSAPP_NUMBER`. Preserve genuine prices and contact destinations when editing. Product examples reuse real gallery artwork and are explicitly labelled as examples; they are not photographs of unverified commissions. Responsive WebP images are used for previews; original JPG/PNG files are retained for the detail viewer.
 
-Clone the repository
-
-git clone https://github.com/YOUR-USERNAME/Satyam-Art-Gallery.git
-
-Open the project
-
-cd Satyam-Art-Gallery
-
-Then open "index.html" in your browser.
-
-No backend or database is required for the basic version.
-
-📱 Responsive Design
-
-The website is optimized for:
-
-- 📱 Mobile
-- 📟 Tablet
-- 💻 Desktop
-
-🎨 Customization
-
-You can easily customize:
-
-- Artist name
-- Gallery name
-- Artwork images
-- Profile image
-- Contact information
-- Instagram/social links
-- Colors
-- Fonts
-- Animations
-- Gallery sections
-
-📞 Contact
-
-Artist: Satyam
-
-Instagram: "@satyam_singh__.12"
-
-Phone: "+91 62075 83683"
-
-📄 License
-
-This project is created for personal/portfolio use.
-
-Please do not copy or redistribute original artwork, photographs, or personal assets without permission.
-
-⭐ Support
-
-If you like this project, consider giving the repository a ⭐ on GitHub.
-
----
-
-🎨 Satyam Art Gallery
-
-Art • Creativity • Inspiration
+Existing secondary pages, styles and scripts are retained. Artwork, photographs and personal assets should not be copied or redistributed without the owner's permission.
