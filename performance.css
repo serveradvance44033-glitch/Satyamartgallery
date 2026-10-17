@@ -21,7 +21,6 @@ button:disabled { cursor: not-allowed; opacity: .65; }
   .paint img, .gallery-card .gallery-image img { box-shadow: 2px 3px 0 #674d2b, 0 5px 9px #0007; }
   .service-icon, .logo>svg, .footer-brand { filter: none !important; }
   #intro::after { display: none; }
-  .wa-photo-preview img, .wa-review-photo img { max-height: 340px; object-fit: contain; }
 }
 @media (pointer: coarse), (max-width: 850px) {
   .room-caption span { font-size: 0; }
