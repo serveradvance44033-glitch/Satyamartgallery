@@ -41,3 +41,10 @@
 @media (prefers-reduced-motion: reduce) {
     .gallery-filter, .gallery-filter:hover, .gallery-filter.is-active { transition: none; }
 }
+
+
+/* The three unpriced originals are enquiry-only until their prices and availability are confirmed. */
+.art-enquiry-note { margin: 5px 0 2px !important; color: #d6c4a2 !important; font-size: 12px !important; }
+.gallery-art-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.gallery-art-actions .btn { min-height: 44px; }
+@media (max-width: 600px) { .gallery-art-actions .btn { flex: 1 1 150px; justify-content: center; text-align: center; } }
