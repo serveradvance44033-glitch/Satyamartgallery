@@ -1,6 +1,6 @@
 # Satyam Art Shop
 
-Original artwork and custom sketch enquiries. Live website: https://satyam2026.vercel.app/
+Original artwork and custom sketch enquiries. Live website: https://satyamartshop.vercel.app/
 
 ## Run locally
 
