@@ -22,6 +22,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("active");
+            observer.unobserve(entry.target);
         }
     });
 }, { threshold: .12 });
@@ -38,6 +39,8 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
         if (intro) {
+            intro.hidden = true;
+            intro.style.display = "none";
             intro.style.pointerEvents = "none";
         }
     }, 4300);
@@ -80,3 +83,6 @@ window.addEventListener("load", () => {
         if (window.innerWidth > 1000) setMenu(false);
     });
 })();
+
+/* Stop decorative animations while the tab is not visible. */
+document.addEventListener("visibilitychange", () => document.documentElement.classList.toggle("page-hidden", document.hidden));

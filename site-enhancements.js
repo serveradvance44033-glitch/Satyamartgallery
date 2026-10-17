@@ -32,6 +32,7 @@
 
   const form = document.getElementById('whatsappEnquiry');
   if (!form) return;
+  const websiteOnly = form.dataset.websiteOnly === 'true';
   const artworkInput = document.getElementById('waArtwork');
   const peopleInput = document.getElementById('waPeople');
   const peopleField = document.getElementById('waPeopleField');
@@ -56,6 +57,11 @@
     if (people) lines.push(`People in the portrait: ${people}.`);
     const requirements = document.getElementById('waRequirements').value.trim();
     if (requirements) lines.push(`Portrait description / requirements: ${requirements}`);
+    if (websiteOnly) {
+      lines.push(photoReady ? 'Reference photo: local preview only — not uploaded or sent.' : 'No reference photo selected.');
+      lines.push('Draft only. Website ordering is not available yet. Nothing has been sent or confirmed.');
+      return lines.join('\n');
+    }
     lines.push(photoReady ? 'A reference photo was previewed on my device only. The website has not uploaded or sent it.' : 'I can share a reference photo in this chat if needed.');
     lines.push('Please confirm the final quote, size, medium, frame options, payment terms, completion time and delivery details before I confirm the order.');
     return lines.join('\n');
@@ -81,7 +87,9 @@
     if (clearInput) photoInput.value = '';
     invalidateReview();
   }
-  photoInput.addEventListener('change', () => {
+  let photoGeneration = 0;
+  photoInput.addEventListener('change', async () => {
+    const generation = ++photoGeneration;
     const file = photoInput.files[0];
     clearPhoto(false);
     if (!file) { photoStatus.textContent = ''; return; }
@@ -90,28 +98,52 @@
       photoStatus.textContent = 'Choose a JPG, PNG or WebP image no larger than 10 MB. Nothing was uploaded.';
       return;
     }
-    photoUrl = URL.createObjectURL(file);
-    const currentUrl = photoUrl;
-    photoImage.onload = () => {
-      if (currentUrl !== photoUrl) return;
-      photoReady = true;
-      photoPreview.hidden = false;
-      photoStatus.textContent = 'Preview only — your photo stays on this device. It has not been uploaded or sent to Satyam.';
-      invalidateReview();
-    };
-    photoImage.onerror = () => {
-      if (currentUrl !== photoUrl) return;
+    photoStatus.textContent = 'Preparing a local preview. Nothing is being uploaded.';
+    try {
+      let preview = file;
+      if ('createImageBitmap' in window) {
+        const bitmap = await createImageBitmap(file);
+        if (generation !== photoGeneration) { bitmap.close(); return; }
+        const scale = Math.min(1, 1280 / Math.max(bitmap.width, bitmap.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+        canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+        canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        bitmap.close();
+        preview = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', .85));
+        canvas.width = canvas.height = 0;
+        if (!preview) throw new Error('Preview unavailable');
+      }
+      if (generation !== photoGeneration) return;
+      photoUrl = URL.createObjectURL(preview);
+      const currentUrl = photoUrl;
+      photoImage.onload = () => {
+        if (currentUrl !== photoUrl) return;
+        photoReady = true;
+        photoPreview.hidden = false;
+        photoStatus.textContent = 'Preview only — your photo stays on this device. It has not been uploaded or sent to Satyam.';
+        invalidateReview();
+      };
+      photoImage.onerror = () => {
+        if (currentUrl !== photoUrl) return;
+        clearPhoto();
+        photoStatus.textContent = 'This image could not be previewed. Please choose another JPG, PNG or WebP photo. Nothing was uploaded.';
+      };
+      photoImage.src = photoUrl;
+    } catch (_) {
+      if (generation !== photoGeneration) return;
       clearPhoto();
       photoStatus.textContent = 'This image could not be previewed. Please choose another JPG, PNG or WebP photo. Nothing was uploaded.';
-    };
-    photoImage.src = photoUrl;
+    }
   });
   document.getElementById('waRemovePhoto').addEventListener('click', () => {
+    photoGeneration++;
     clearPhoto();
     photoStatus.textContent = 'Preview removed. Nothing was uploaded or sent.';
     photoInput.focus();
   });
-  reviewButton.textContent = 'Review order enquiry';
+  window.addEventListener('pagehide', () => { photoGeneration++; clearPhoto(); });
+  reviewButton.textContent = websiteOnly ? 'Review details' : 'Review order enquiry';
   updatePeople();
   function validateCustomer() {
     nameInput.setCustomValidity(nameInput.value.trim() ? '' : 'Please enter your name.');
@@ -126,11 +158,12 @@
     invalidateReview();
     artworkInput.focus();
   });
-  form.addEventListener('submit', event => {
+  function reviewRequest(event) {
+    if (websiteOnly) event.preventDefault();
     validateCustomer();
     if (!form.reportValidity()) { event.preventDefault(); return; }
-    form.elements.namedItem('text').value = message();
-    if (reviewed) return; // Only opens a draft; the visitor sends in WhatsApp.
+    if (!websiteOnly) form.elements.namedItem('text').value = message();
+    if (reviewed && !websiteOnly) return; // Only opens a draft; the visitor sends in WhatsApp.
     event.preventDefault();
     document.getElementById('waReviewText').textContent = message();
     document.getElementById('waReviewPhoto').hidden = !photoReady;
@@ -139,5 +172,7 @@
     reviewButton.hidden = true;
     reviewed = true;
     document.getElementById('waReviewHeading').focus();
-  });
+  }
+  form.addEventListener('submit', reviewRequest);
+  if (websiteOnly) reviewButton.addEventListener('click', reviewRequest);
 })();

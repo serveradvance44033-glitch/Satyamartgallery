@@ -1,0 +1,29 @@
+/* Touch-first rendering: static gallery depth without dozens of composited planes.
+   Desktop keeps its interactive exhibition. Authentic artwork is unchanged. */
+.page-hidden *, .page-hidden *::before, .page-hidden *::after { animation-play-state: paused !important; }
+#intro[hidden] { display: none !important; }
+button:disabled { cursor: not-allowed; opacity: .65; }
+@media (pointer: coarse), (max-width: 850px) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto; }
+  .depth-panel, .depth-panel:hover, .depth-panel *, .depth-panel *::before, .depth-panel *::after {
+    transform: none !important; transform-style: flat !important;
+    transition: none !important; will-change: auto !important;
+  }
+  .depth-panel, .depth-panel:hover { box-shadow: 0 3px 0 #493a24, 0 7px 12px #0006 !important; }
+  .cards, .other, .gallery-grid, .steps, .facts { perspective: none !important; }
+  .exhibition-arrive, .reveal { animation: none !important; transition: none !important; opacity: 1 !important; filter: none !important; transform: none !important; }
+  .hero-visual.spatial-room, .room-viewport { perspective: none !important; }
+  .room-stage { transform: none !important; transition: none !important; transform-style: flat; }
+  .room-reflections, .room-beams { display: none; }
+  .nav, .navbar, .mobile-menu, .floating-label, .wa-enquiry-form, .order-contact { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  .paint-image, .gallery-image { transform-style: flat !important; }
+  .paint img, .gallery-card .gallery-image img { box-shadow: 2px 3px 0 #674d2b, 0 5px 9px #0007; }
+  .service-icon, .logo>svg, .footer-brand { filter: none !important; }
+  #intro::after { display: none; }
+  .wa-photo-preview img, .wa-review-photo img { max-height: 340px; object-fit: contain; }
+}
+@media (pointer: coarse), (max-width: 850px) {
+  .room-caption span { font-size: 0; }
+  .room-caption span::after { content: 'ORIGINAL ARTWORK · SELECTED BY SATYAM'; font-size: 7px; }
+}

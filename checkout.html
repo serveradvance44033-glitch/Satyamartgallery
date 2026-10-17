@@ -140,6 +140,7 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <meta content="Original Hanuman artwork" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <link href="Gallery.css" rel="stylesheet"/><link href="Spatial.css" rel="stylesheet"/><link href="Exhibition.css" rel="stylesheet"/><link href="site-enhancements.css" rel="stylesheet"/>
+<link href="performance.css" rel="stylesheet"/>
 </head>
 <body class="checkout-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -201,7 +202,7 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <div class="tag">ARTWORK ORDER REQUEST</div>
 <a class="checkout-back" href="index.html">← Back to gallery</a>
 <h1 id="orderHeading" tabindex="-1">Your artwork, your way.</h1>
-<p>Prepare your artwork request here, review the details, then discuss your quote with Satyam. No payment is taken on this page.</p>
+<p>Prepare your artwork request here, review the details. Website order submission is not available yet. No payment is taken on this page.</p>
 </div>
 <div class="steps">
 <div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><rect height="32" rx="3" width="34" x="7" y="8"></rect><circle cx="18" cy="18" r="3"></circle><path d="m9 36 11-12 7 7 6-6 7 11"></path></svg>
@@ -211,13 +212,13 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 </div>
 <div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><path d="M24 33V5m-10 11L24 5l10 11M7 29v13h34V29"></path></svg>
 <span>STEP 02</span>
-<h3>Share and discuss</h3>
-<p>Review your enquiry, open WhatsApp and tap Send. For a custom sketch, attach a clear reference photo there with the face and details visible. Photos are shared in WhatsApp, not uploaded by this form.</p>
+<h3>Add your reference</h3>
+<p>Add a clear reference photo and describe the portrait you want. The photo currently previews on your device only; it is not uploaded or received by Satyam.</p>
 </div>
 <div class="step reveal"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 48 48"><path d="m8 25 11 11L41 12"></path></svg>
 <span>STEP 03</span>
 <h3>Review the quote and agree</h3>
-<p>Ask Satyam for the final quote and availability. Confirm size, medium, frame inclusion, payment terms and delivery details together before agreeing to the order. Opening a WhatsApp draft does not confirm an order or payment.</p>
+<p>Ask Satyam for the final quote and availability. Confirm size, medium, frame inclusion, payment terms and delivery details together before agreeing to the order. This page cannot submit or confirm an order or payment yet.</p>
 </div>
 </div>
 <aside class="order-guidance" aria-labelledby="orderChecklistHeading">
@@ -239,10 +240,10 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 </div>
 <div class="wa-text">
 <h3>Start your order enquiry</h3>
-<p>Choose your artwork and add details. You can review the message before opening WhatsApp.</p>
+<p>Choose your artwork and add details. You can review your details here. Sending orders directly from this website is not set up yet.</p>
 </div>
-<form class="wa-enquiry-form" id="whatsappEnquiry" action="https://wa.me/916207583683" method="get" target="_blank" rel="noopener noreferrer">
-<input type="hidden" name="text" value="Hello Satyam, I want to place an artwork order."/>
+<form class="wa-enquiry-form" id="whatsappEnquiry" data-website-only="true">
+
 <h4 class="checkout-stage" id="customerDetails">1. Your contact details</h4>
 <div class="wa-customer-fields">
 <label for="waName">Your name
@@ -281,31 +282,30 @@ a:focus-visible, button:focus-visible { outline:3px solid #f1d38f; outline-offse
 <div class="wa-photo-field">
 <label for="waPhoto">Select photo (optional — preview only)</label>
 <input id="waPhoto" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="waPhotoHelp waPhotoStatus"/>
-<p class="wa-enquiry-note" id="waPhotoHelp">JPG, PNG or WebP, up to 10 MB. Pick a clear photo with the face and details visible. Your photo stays on your device. It is not uploaded or sent to Satyam. Website photo submission is not available yet; this form can send text details only.</p>
+<p class="wa-enquiry-note" id="waPhotoHelp">JPG, PNG or WebP, up to 10 MB. Pick a clear photo with the face and details visible. Your photo stays on your device. It is not uploaded or sent to Satyam. Website submission is not available yet. Neither your photo nor text details can be sent from this page.</p>
 <p class="wa-photo-status" id="waPhotoStatus" role="status" aria-live="polite"></p>
 <div class="wa-photo-preview" id="waPhotoPreview" hidden>
-<img id="waPhotoImage" alt="Your selected reference photo — preview only, not sent"/>
+<img decoding="async" id="waPhotoImage" alt="Your selected reference photo — preview only, not sent"/>
 <button class="btn btn-outline" id="waRemovePhoto" type="button">Remove photo preview</button>
 </div>
-<noscript><p class="wa-enquiry-note">Photo preview needs JavaScript. Attach your reference directly in WhatsApp instead.</p></noscript>
+<noscript><p class="wa-enquiry-note">Photo preview and review need JavaScript. Website order submission is not available yet.</p></noscript>
 </div>
-<p class="wa-enquiry-note">Your details are added only to the WhatsApp draft. This form does not save them or place an order. Review the draft and tap Send in WhatsApp to share them with Satyam.</p>
-<button class="wa-button" id="waReviewButton" type="submit">Continue in WhatsApp</button>
+<p class="wa-enquiry-note">Your details and photo stay on this device. This page does not save or send your request. Direct website ordering will be available after secure order receipt is connected.</p>
+<button class="wa-button" id="waReviewButton" type="button">Review details</button>
 <section class="order-review" id="waReview" aria-labelledby="waReviewHeading" hidden>
 <h4 id="waReviewHeading" tabindex="-1">4. Review your order request</h4>
 <pre id="waReviewText"></pre>
-<figure class="wa-review-photo" id="waReviewPhoto" hidden><img id="waReviewPhotoImage" alt="Selected reference photo — local preview only"/><figcaption>Photo preview only. This image is not uploaded or included in the WhatsApp draft.</figcaption></figure>
+<figure class="wa-review-photo" id="waReviewPhoto" hidden><img decoding="async" id="waReviewPhotoImage" alt="Selected reference photo — local preview only"/><figcaption>Photo preview only. This image stays on your device and has not been sent to Satyam.</figcaption></figure>
 <p>Check the details above. You can edit them before continuing. No order or payment is confirmed here.</p>
 <div class="order-review-actions">
 <button class="btn btn-outline" id="waEditButton" type="button">Edit details</button>
-<button class="wa-button" type="submit">Open WhatsApp draft</button>
+<button class="wa-button" type="button" disabled aria-describedby="websiteOrderPending">Website ordering not available yet</button>
 </div>
 </section>
-<p class="wa-enquiry-note">WhatsApp opens with a message for you to review. Add a reference photo there if needed, then tap Send.</p>
-<noscript><p class="wa-enquiry-note">JavaScript is off, so the general order message will open.</p></noscript>
+<p class="wa-enquiry-note" id="websiteOrderPending">Secure order receipt is not connected yet. No order has been sent. Your details and photo are not uploaded.</p>
+<noscript><p class="wa-enquiry-note">JavaScript is off. No details or photos can be submitted from this page.</p></noscript>
 </form>
-<p class="order-update-help">Already placed an order? Ask Satyam for an update below. Include the artwork and any order reference you received in WhatsApp; this website does not show live progress.</p>
-<a class="btn btn-outline order-status-link" href="https://wa.me/916207583683?text=Hello%20Satyam,%20I%27d%20like%20an%20update%20on%20my%20order.%20My%20order%20details%20are:%20" aria-label="Ask Satyam for an order update on WhatsApp" rel="noopener noreferrer" target="_blank">Already ordered? Ask for an update</a>
+<p class="order-update-help">Live order tracking is not connected. This page cannot show or update existing order progress.</p>
 </div>
 </div>
 </section>

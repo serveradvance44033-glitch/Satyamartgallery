@@ -956,6 +956,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 @media (prefers-reduced-motion: reduce) { dialog.lightbox .lightbox-content { animation: none; } }
 
 </style><link href="Spatial.css" rel="stylesheet"/><link href="Exhibition.css" rel="stylesheet"/>
+<link href="performance.css" rel="stylesheet"/>
 </head>
 <body class="artist-site">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -989,7 +990,7 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
 <div class="orbit"></div>
 <div class="photo-ring">
 <div class="photo-inner">
-<img alt="Satyam - Artist" data-full-image="Satyam.jpg" decoding="async" fetchpriority="high" height="1440" loading="eager" src="Satyam.webp" width="1080"/>
+<img alt="Satyam - Artist" data-full-image="Satyam.jpg" decoding="async" fetchpriority="high" height="1440" loading="eager" src="Satyam.webp" srcset="Satyam-mobile.webp 750w, Satyam.webp 750w" sizes="(max-width: 600px) 88vw, 600px" width="1080"/>
 <div class="photo-placeholder">
                     ARTIST
                 </div>
@@ -1188,7 +1189,7 @@ artistImage.addEventListener(
     box.className = 'lightbox';
     box.id = 'lightbox';
     box.setAttribute('aria-labelledby', 'lightboxTitle');
-    box.innerHTML = '<button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button><div class="lightbox-content"><img id="lightboxImage" alt=""><div class="lightbox-title" id="lightboxTitle"></div></div>';
+    box.innerHTML = '<button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button><div class="lightbox-content"><img decoding="async" id="lightboxImage" alt=""><div class="lightbox-title" id="lightboxTitle"></div></div>';
     document.body.appendChild(box);
     const preview = box.querySelector('#lightboxImage');
     const title = box.querySelector('#lightboxTitle');

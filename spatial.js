@@ -3,6 +3,7 @@
  'use strict';
  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
  document.querySelectorAll('.card,.other-card,.paint,.gallery-card,.fact,.step,.order-contact,.quote').forEach(el => { el.dataset.spatial = 'card'; el.classList.add('depth-panel'); });
+ const lightDevice = window.matchMedia('(pointer: coarse), (max-width: 850px)');
  const surfaces = [...document.querySelectorAll('[data-spatial]')];
  const states = new WeakMap();
  function reset(el) {
@@ -12,7 +13,7 @@
   el.classList.remove('spatial-active');
  }
  function move(el, event) {
-  if (motion.matches || (event.isPrimary === false)) return;
+  if (motion.matches || lightDevice.matches || document.hidden || event.pointerType === 'touch' || (event.isPrimary === false)) return;
   let state = states.get(el);
   if (!state) { state = { frame: 0, timer: 0 }; states.set(el, state); }
   state.x = event.clientX; state.y = event.clientY;
@@ -49,7 +50,7 @@
   entries.forEach(entry => {
    if (!entry.isIntersecting) { reset(entry.target); return; }
    observer.unobserve(entry.target);
-   if (motion.matches) return;
+   if (motion.matches || lightDevice.matches) return;
    entry.target.classList.add('exhibition-arrive');
    timers.set(entry.target, setTimeout(() => {
     entry.target.classList.remove('exhibition-arrive'); timers.delete(entry.target);
@@ -62,6 +63,7 @@
   if (!entry.isIntersecting) reset(entry.target);
  }), {threshold:0});
  surfaces.forEach(el => visibility.observe(el));
+ lightDevice.addEventListener('change', () => surfaces.forEach(reset));
  motion.addEventListener('change', () => {
   surfaces.forEach(reset);
   timers.forEach((timer,el) => {clearTimeout(timer);el.classList.remove('exhibition-arrive');}); timers.clear();
