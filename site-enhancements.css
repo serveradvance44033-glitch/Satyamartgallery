@@ -48,3 +48,6 @@
 .gallery-art-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .gallery-art-actions .btn { min-height: 44px; }
 @media (max-width: 600px) { .gallery-art-actions .btn { flex: 1 1 150px; justify-content: center; text-align: center; } }
+
+.order-status-link { grid-column: 1 / -1; justify-self: start; min-height: 44px; }
+@media (max-width: 600px) { .order-status-link { grid-column: 1; width: 100%; justify-content: center; text-align: center; } }
