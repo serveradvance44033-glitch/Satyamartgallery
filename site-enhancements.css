@@ -48,3 +48,8 @@
 .gallery-art-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .gallery-art-actions .btn { min-height: 44px; }
 @media (max-width: 600px) { .gallery-art-actions .btn { flex: 1 1 150px; justify-content: center; text-align: center; } }
+
+/* Keep the restored simple enquiry button inside its card on narrow screens. */
+#order .wa-enquiry-form .wa-button { margin-left: 0; max-width: 100%; box-sizing: border-box; }
+.wa-enquiry-fields label { min-width: 0; }
+.wa-enquiry-fields input, .wa-enquiry-fields select { box-sizing: border-box; }
