@@ -7,12 +7,50 @@
         if (!(image instanceof HTMLImageElement)) return;
 
         if (image.dataset.galleryImageFallback === 'shown') {
-            // The local SVG should be dependable; this last guard prevents any retry loop.
+            // If even the local data image fails, render the same icon as inline SVG without retrying.
             image.dataset.galleryImageFallback = 'unavailable';
             image.removeAttribute('srcset');
             image.removeAttribute('src');
             image.classList.add('gallery-image-fallback-unavailable');
-            image.style.backgroundImage = `url("${icon}")`;
+
+            const rect = image.getBoundingClientRect();
+            const style = getComputedStyle(image);
+            const wrapper = document.createElement('span');
+            wrapper.className = 'gallery-image-fallback-wrapper';
+            wrapper.style.display = style.display === 'inline' ? 'inline-block' : style.display;
+            wrapper.style.position = style.position === 'absolute' || style.position === 'fixed' ? style.position : 'relative';
+            wrapper.style.width = `${Math.max(1, rect.width)}px`;
+            wrapper.style.height = `${Math.max(1, rect.height)}px`;
+            wrapper.style.verticalAlign = style.verticalAlign;
+            wrapper.style.margin = style.margin;
+            if (style.position === 'absolute' || style.position === 'fixed') {
+                for (const edge of ['top', 'right', 'bottom', 'left']) wrapper.style[edge] = style[edge];
+                wrapper.style.transform = style.transform;
+                wrapper.style.zIndex = style.zIndex;
+            }
+            if (image.alt) {
+                wrapper.setAttribute('role', 'img');
+                wrapper.setAttribute('aria-label', image.alt);
+            } else {
+                wrapper.setAttribute('aria-hidden', 'true');
+            }
+
+            const parsedIcon = new DOMParser().parseFromString(svg, 'image/svg+xml').documentElement;
+            const inlineIcon = document.importNode(parsedIcon, true);
+            inlineIcon.classList.add('gallery-image-fallback-vector');
+            inlineIcon.setAttribute('aria-hidden', 'true');
+            image.parentNode.insertBefore(wrapper, image);
+            wrapper.appendChild(image);
+            wrapper.appendChild(inlineIcon);
+            image.style.position = 'absolute';
+            image.style.inset = '0';
+            image.style.width = '100%';
+            image.style.height = '100%';
+            image.style.opacity = '0';
+            image.style.margin = '0';
+            image.setAttribute('aria-hidden', 'true');
+            image.alt = '';
+
             const aboutPlaceholder = image.closest('.photo-inner')?.querySelector('.photo-placeholder');
             if (aboutPlaceholder) aboutPlaceholder.hidden = true;
             return;
