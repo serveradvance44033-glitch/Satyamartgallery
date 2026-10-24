@@ -53,3 +53,24 @@
 #order .wa-enquiry-form .wa-button { margin-left: 0; max-width: 100%; box-sizing: border-box; }
 .wa-enquiry-fields label { min-width: 0; }
 .wa-enquiry-fields input, .wa-enquiry-fields select { box-sizing: border-box; }
+
+/* Keep the featured service badge separate from its action on phones. */
+@media (max-width: 600px) {
+    #services .card:has(> .popular) > .popular {
+        position: static;
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+        align-self: center;
+        transform: none;
+        white-space: nowrap;
+    }
+
+    #services .card:has(> .popular) > .btn {
+        grid-column: 3;
+        grid-row: 2;
+        justify-self: end;
+        align-self: center;
+        white-space: nowrap;
+    }
+}
