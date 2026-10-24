@@ -980,6 +980,8 @@ dialog.lightbox .lightbox-close:focus-visible { outline: 3px solid #d7b36a; outl
   }
 }
 </script>
+    <link rel="stylesheet" href="image-fallback.css"/>
+    <script src="image-fallback.js" defer></script>
 </head>
 <body class="artist-site">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -1167,22 +1169,10 @@ const placeholder =
     document.querySelector(".photo-placeholder");
 
 artistImage.addEventListener(
-    "error",
-    function(){
-
-        artistImage.style.display =
-            "none";
-
-        placeholder.style.display =
-            "block";
-
-    }
-);
-
-artistImage.addEventListener(
     "load",
     function(){
 
+        placeholder.hidden = true;
         placeholder.style.display =
             "none";
 

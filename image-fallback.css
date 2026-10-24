@@ -1,0 +1,9 @@
+/* Preserve each image's layout box while giving failed sources a local photo glyph. */
+img.gallery-image-fallback,
+img.gallery-image-fallback-unavailable {
+    background-color: #171615;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    object-fit: contain !important;
+}
