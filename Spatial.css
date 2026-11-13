@@ -69,3 +69,11 @@
 @media(max-width:600px){.room-inscription{display:none}}
 /* Decorative planes never intercept an original artwork's preview target. */
 .room-stage{pointer-events:none}.room-stage .hero-image{pointer-events:auto}
+/* Keep the hero artwork titles above the frames, clear of the foreground easel. */
+@media(min-width:851px){
+.exhibit-centre figcaption,.exhibit-right figcaption{position:absolute;top:-34px;left:50%;z-index:20;transform:translateX(-50%) translateZ(35px);width:max-content;max-width:calc(100% + 60px);margin:0;padding:5px 9px;border:1px solid #c39a56;border-radius:2px;background:rgba(13,14,14,.96);box-shadow:0 3px 8px #0009;color:#f4e4c7;font:600 clamp(10px,.8vw,12px)/1.3 Inter,sans-serif;letter-spacing:.08em;text-align:center;white-space:nowrap;text-shadow:0 1px 2px #000}
+.easel-canvas{box-sizing:border-box;display:flex;flex-direction:column;gap:3px;padding:4%}
+.easel-canvas img{display:block;flex:1 1 auto;width:100%;height:auto;min-height:0}
+.easel-canvas .easel-caption{flex:0 0 auto;margin:0;padding:3px 2px;border:1px solid #8b6740;background:#ead7ad;color:#2c2116;text-align:center;font:700 clamp(8px,.75vw,10px)/1.1 Inter,sans-serif;letter-spacing:0;white-space:nowrap;text-shadow:none;box-shadow:0 1px 3px #0008}
+}
+@media(max-width:850px){.easel-canvas .easel-caption{display:none}}
